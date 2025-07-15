@@ -12357,6 +12357,7 @@ const initBurgerMenu = () => {
   const mobileContent = document.querySelector(
     ".header__mobile-content"
   );
+  const headerMobile = document.querySelector(".header__mobile");
   let isMobileContentVisible = false;
   const hamburgerInput = document.querySelector(
     '.hamburger input[type="checkbox"]'
@@ -12388,8 +12389,9 @@ const initBurgerMenu = () => {
     isCoursesVisible = !isCoursesVisible;
   };
   const animateMobileContent = () => {
-    if (!mobileContent) return;
+    if (!mobileContent || !headerMobile) return;
     if (isMobileContentVisible) {
+      headerMobile.style.height = "auto";
       gsapWithCSS.to(mobileContent, {
         height: 0,
         duration: 0.3,
@@ -12400,6 +12402,7 @@ const initBurgerMenu = () => {
       });
     } else {
       mobileContent.style.display = "flex";
+      headerMobile.style.height = "100vh";
       gsapWithCSS.fromTo(
         mobileContent,
         { height: 0 },
@@ -12494,11 +12497,11 @@ const initHeroSlider = () => {
       shadowOffset: 20,
       shadowScale: 0.94
     },
-    autoplay: {
-      delay: 3e3,
-      disableOnInteraction: false,
-      waitForTransition: true
-    },
+    // autoplay: {
+    //   delay: 3000,
+    //   disableOnInteraction: false,
+    //   waitForTransition: true,
+    // },
     pagination: {
       el: ".hero__pagination",
       clickable: true,
@@ -12666,4 +12669,4 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM полностью загружен");
   initMobileCoursesNavigation();
 });
-//# sourceMappingURL=index-g-nGhQLy.js.map
+//# sourceMappingURL=index-B004OYJ1.js.map

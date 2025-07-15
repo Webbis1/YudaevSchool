@@ -1055,7 +1055,6 @@ table {
 .header__mobile {
   z-index: -1;
   position: relative;
-  height: 100vh;
   padding-bottom: 20px;
 }
 @media (min-width: 990px) {
@@ -2072,7 +2071,7 @@ table {
 }
 
 .hero {
-  height: 100vh;
+  height: 100lvh;
   width: 100%;
   background-color: #e4e4e4;
   position: sticky;
@@ -2085,6 +2084,7 @@ table {
   .hero {
     height: auto;
     position: relative;
+    background-color: #E8E8E8;
   }
 }
 .hero::before {
@@ -2117,6 +2117,16 @@ table {
 .hero__content {
   flex: 1;
   position: relative;
+}
+.hero__content::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(180deg, rgba(232, 232, 232, 0) 0%, rgba(232, 232, 232, 0.64) 100%);
+  height: 50px;
+  z-index: 1;
+  backdrop-filter: blur(1px);
 }
 .hero__disc {
   margin-top: 180px;
@@ -2162,7 +2172,9 @@ table {
   height: 100%;
   margin-left: 328px;
   position: relative;
+  box-shadow: 10px 4px 55px 0px rgba(0, 0, 0, 0.0705882353);
   background: repeating-linear-gradient(to right, transparent 0px, transparent 9px, rgba(0, 0, 0, 0.1) 9px, rgba(255, 255, 255, 0.1) 18px);
+  backdrop-filter: blur(35px);
 }
 @media (max-width: 1440px) {
   .hero__fence {
@@ -2174,6 +2186,12 @@ table {
     margin-left: 0;
     position: absolute;
     inset: 0;
+    box-shadow: 0px -20px 55px 0px rgba(0, 0, 0, 0.0705882353);
+  }
+}
+@media (max-width: 500px) {
+  .hero__fence {
+    box-shadow: none;
   }
 }
 .hero__free {
@@ -2262,6 +2280,19 @@ table {
     translate: -50% 50%;
   }
 }
+@media (max-width: 500px) {
+  .hero__cta::after {
+    content: "";
+    position: absolute;
+    width: 100vw;
+    height: 200%;
+    background: linear-gradient(180deg, #E8E8E8 0%, rgba(232, 232, 232, 0) 100%);
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+    translate: -50%;
+  }
+}
 .hero__running-line {
   border-radius: 50px;
   background-color: #cfff32;
@@ -2308,14 +2339,21 @@ table {
   align-items: flex-end;
 }
 .hero__pagination {
-  top: 164px !important;
-  left: 50% !important;
   display: flex;
   width: 388px !important;
-  transform: translateX(-50%) !important;
   gap: 20px;
   align-items: flex-start;
   justify-content: center;
+}
+.hero__pagination.swiper-pagination-bullets.swiper-pagination-horizontal {
+  top: 164px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+@media (max-width: 1400px) {
+  .hero__pagination.swiper-pagination-bullets.swiper-pagination-horizontal {
+    top: 70px;
+  }
 }
 .hero__slide {
   height: auto !important;
@@ -2323,10 +2361,13 @@ table {
 .hero__slide-light {
   position: absolute;
   bottom: 0;
-  transform: translate(-50%, 44%);
-  width: 70%;
+  transform: translate(-40%, 35%);
+  width: 100%;
   left: 50%;
   aspect-ratio: 1;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
   z-index: -1;
   background-image: url("data:image/svg+xml,%3csvg%20width='1152'%20height='653'%20viewBox='0%200%201152%20653'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20filter='url(%23filter0_f_5101_47359)'%3e%3cellipse%20cx='586'%20cy='567.5'%20rx='446'%20ry='427.5'%20fill='%23D8FF5A'/%3e%3c/g%3e%3cdefs%3e%3cfilter%20id='filter0_f_5101_47359'%20x='0'%20y='0'%20width='1172'%20height='1135'%20filterUnits='userSpaceOnUse'%20color-interpolation-filters='sRGB'%3e%3cfeFlood%20flood-opacity='0'%20result='BackgroundImageFix'/%3e%3cfeBlend%20mode='normal'%20in='SourceGraphic'%20in2='BackgroundImageFix'%20result='shape'/%3e%3cfeGaussianBlur%20stdDeviation='70'%20result='effect1_foregroundBlur_5101_47359'/%3e%3c/filter%3e%3c/defs%3e%3c/svg%3e");
 }
@@ -2535,6 +2576,7 @@ table {
 }
 .hero-slide__image {
   width: 100%;
+  display: flex;
 }
 .hero-slide__image img {
   width: 100%;
@@ -3021,6 +3063,7 @@ table {
 }
 
 .footer__logo {
+  aspect-ratio: 1;
   width: 60px;
   height: 60px;
   border-radius: 20px;
@@ -3162,6 +3205,8 @@ table {
   display: flex;
   flex-direction: column;
   height: 100%;
+  max-width: 100%;
+  overflow: visible;
 }
 
 .footer__bottom-section {
@@ -3303,9 +3348,6 @@ table {
   }
 }
 @media (max-width: 992px) {
-  .footer {
-    height: 420px;
-  }
   .footer__container {
     border-radius: 25px;
   }
@@ -3710,14 +3752,25 @@ body {
   letter-spacing: -0.1px;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1400px) {
   .pc {
     display: none !important;
   }
 }
 
-@media (min-width: 990px) {
+@media (min-width: 500px) {
   .mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1400px) {
+  .tablet {
+    display: none !important;
+  }
+}
+@media (max-width: 500px) {
+  .tablet {
     display: none !important;
   }
 }
