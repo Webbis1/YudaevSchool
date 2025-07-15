@@ -2222,6 +2222,9 @@ table {
   min-height: 26px;
   min-width: 26px;
 }
+.hero__cta .side-media__img img {
+  aspect-ratio: 1;
+}
 @media (max-width: 1400px) {
   .hero__cta {
     position: absolute;
@@ -2248,6 +2251,7 @@ table {
   }
 }
 .hero__running-line span {
+  text-transform: uppercase;
   display: inline-block;
   color: rgba(0, 0, 0, 0.5019607843);
   font-weight: 400;
