@@ -2199,7 +2199,11 @@ table {
 }
 .hero__cta {
   z-index: 1;
-  padding-top: 40px;
+}
+@media (min-width: 1440px) {
+  .hero__cta {
+    padding-top: 40px;
+  }
 }
 .hero__cta .side-media {
   background-color: #cfff32;
@@ -2396,6 +2400,12 @@ table {
   padding-right: 0 !important;
   box-sizing: content-box;
   gap: 10px;
+  padding-top: 20px;
+}
+@media (max-width: 1440px) {
+  .hero__text {
+    padding-top: 112px;
+  }
 }
 @media (max-width: 1024px) {
   .hero__text {
