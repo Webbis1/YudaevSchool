@@ -2239,7 +2239,6 @@ table {
   padding-block: 12px;
   padding-inline: 3px;
   text-wrap: nowrap;
-  backdrop-filter: blur(60px);
   font-size: 16px;
   box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.0784313725), 0px -5px 14px 0px rgba(255, 255, 255, 0.8980392157) inset, 0px 5px 14px 0px rgba(255, 255, 255, 0.8980392157) inset, 4px 0px 30px 0px rgba(255, 255, 255, 0.8) inset, -4px 0px 30px 0px rgba(255, 255, 255, 0.8) inset;
   overflow: hidden;
