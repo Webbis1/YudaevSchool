@@ -773,6 +773,11 @@ table {
   }
 }
 .header__logo-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header__logo-image img {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
