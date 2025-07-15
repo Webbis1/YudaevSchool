@@ -2081,6 +2081,12 @@ table {
   z-index: 0;
   overflow-x: hidden;
 }
+@media (max-width: 1400px) {
+  .hero {
+    height: auto;
+    position: relative;
+  }
+}
 .hero::before {
   display: none;
 }
@@ -2314,9 +2320,71 @@ table {
 .hero__slide {
   height: auto !important;
 }
+.hero__slide-light {
+  position: absolute;
+  bottom: 0;
+  transform: translate(-50%, 44%);
+  width: 70%;
+  left: 50%;
+  aspect-ratio: 1;
+  z-index: -1;
+  background-image: url("data:image/svg+xml,%3csvg%20width='1152'%20height='653'%20viewBox='0%200%201152%20653'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20filter='url(%23filter0_f_5101_47359)'%3e%3cellipse%20cx='586'%20cy='567.5'%20rx='446'%20ry='427.5'%20fill='%23D8FF5A'/%3e%3c/g%3e%3cdefs%3e%3cfilter%20id='filter0_f_5101_47359'%20x='0'%20y='0'%20width='1172'%20height='1135'%20filterUnits='userSpaceOnUse'%20color-interpolation-filters='sRGB'%3e%3cfeFlood%20flood-opacity='0'%20result='BackgroundImageFix'/%3e%3cfeBlend%20mode='normal'%20in='SourceGraphic'%20in2='BackgroundImageFix'%20result='shape'/%3e%3cfeGaussianBlur%20stdDeviation='70'%20result='effect1_foregroundBlur_5101_47359'/%3e%3c/filter%3e%3c/defs%3e%3c/svg%3e");
+}
 .hero__icon {
+  z-index: 50;
   position: absolute;
   animation: icon 2.5s cubic-bezier(0.54, 0.19, 0.33, 0.9) infinite;
+}
+.hero__icon img {
+  pointer-events: none;
+}
+.hero__icon--blander {
+  top: 26%;
+  left: 35%;
+}
+.hero__icon--circle {
+  top: 51%;
+  right: 9%;
+}
+.hero__icon--ps {
+  bottom: 42%;
+  left: 37%;
+}
+.hero__icon--ai {
+  top: 20%;
+  right: 11%;
+}
+.hero__icon--figma {
+  bottom: 52%;
+  left: 28%;
+}
+.hero__icon--t {
+  top: 56%;
+  left: 70%;
+}
+.hero__icon--arrow {
+  bottom: 67%;
+  right: 3%;
+}
+.hero__icon--wb {
+  top: 31%;
+  right: 58%;
+}
+.hero__icon--ozon {
+  bottom: 51%;
+  left: 82%;
+}
+.hero__icon--gpt {
+  top: 24%;
+  left: 31%;
+}
+.hero__icon--r {
+  bottom: 18%;
+  right: 19%;
+}
+.hero__icon--ship {
+  top: 16%;
+  left: 79%;
 }
 .hero__icon:nth-child(1) {
   animation-timing-function: cubic-bezier(0.54, 0.19, 0.33, 0.9);
