@@ -12163,7 +12163,7 @@ class StudentResults {
     if (!item) return 0;
     const gap = 95;
     const rows = parseInt(this.grid.dataset.initialRows || "2");
-    return item.offsetHeight * rows + gap * (rows - 1);
+    return item.offsetHeight * rows + gap * (rows - 1) + 50;
   }
   toggleGrid() {
     this.isExpanded = !this.isExpanded;
@@ -12700,4 +12700,4 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM полностью загружен");
   initMobileCoursesNavigation();
 });
-//# sourceMappingURL=index-XrgKGeUP.js.map
+//# sourceMappingURL=index-BBxtzFMn.js.map

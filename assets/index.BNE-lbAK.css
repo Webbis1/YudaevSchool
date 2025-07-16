@@ -332,17 +332,17 @@ table {
   -webkit-mask-image: radial-gradient(circle 20px at center, transparent 98%, rgb(0, 0, 0) 100%);
   mask-image: radial-gradient(circle 20px at center, transparent 98%, rgb(0, 0, 0) 100%);
 }
+@media (hover: hover) and (pointer: fine) {
+  .green-arrow:hover {
+    box-shadow: 0px 0px 24px 0px rgba(207, 255, 50, 0.4), 0px -3px 15px 0px rgba(255, 255, 255, 0.3019607843) inset, 0px 3px 15px 0px rgba(255, 255, 255, 0.3019607843) inset, 2px 0px 15px 0px rgba(255, 255, 255, 0.5019607843) inset, -2px 0px 15px 0px rgba(255, 255, 255, 0.5019607843) inset, 0px 2px 10px 0px rgba(0, 0, 0, 0.0509803922);
+  }
+}
 .green-arrow img {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
   object-position: center;
   transition: all 0.3s linear 0s;
-}
-@media (hover: hover) and (pointer: fine) {
-  .green-arrow:hover {
-    box-shadow: 0px -3px 24px 0px rgba(207, 255, 50, 0.4), 0px 0px 12px 1px rgba(255, 255, 255, 0.75) inset;
-  }
 }
 .green-arrow:active {
   box-shadow: none;
@@ -2065,7 +2065,7 @@ table {
 .student-results {
   padding-top: 70px;
   align-items: center;
-  background-color: #F8F8F8;
+  background-color: #f8f8f8;
   padding-bottom: 250px;
 }
 .student-results__content {
@@ -2082,7 +2082,7 @@ table {
   transition: height 0.5s ease-out;
   grid-template-columns: repeat(var(--columns, 6), 1fr);
 }
-@media (max-width: 1024px) {
+@media (max-width: 1440px) {
   .student-results__inner {
     grid-template-columns: repeat(4, 1fr);
   }
@@ -2097,6 +2097,11 @@ table {
     grid-template-columns: 1fr;
   }
 }
+@media (max-width: 1440px) {
+  .student-results__card:empty {
+    display: none !important;
+  }
+}
 .student-results__show-more {
   margin-top: 115px;
   text-align: center;
@@ -2106,6 +2111,28 @@ table {
   background: none;
   border: none;
   cursor: pointer;
+}
+.student-results__show-more .side-media {
+  padding: 5px;
+  padding-left: 20px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .student-results__show-more .side-media:hover {
+    backdrop-filter: blur(45px);
+    box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.0784313725), 0px -5px 5px 0px rgba(255, 255, 255, 0.1019607843) inset, 0px 5px 5px 0px rgba(255, 255, 255, 0.1019607843) inset, 4px 0px 10px 0px rgba(255, 255, 255, 0.1019607843) inset, -4px 0px 10px 0px rgba(255, 255, 255, 0.1019607843) inset;
+  }
+}
+.student-results__show-more .side-media__img {
+  min-height: 32px;
+  min-width: 32px;
+}
+.student-results__show-more .side-media__text {
+  font-family: "Inter";
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 15px;
+  line-height: 135%;
+  letter-spacing: -0.2px;
 }
 
 .student-results-card {
@@ -2118,7 +2145,6 @@ table {
   width: 100%;
   border-radius: 50%;
   align-items: center;
-  overflow: hidden;
   max-width: 205px;
   aspect-ratio: 1;
   display: flex;
@@ -2137,8 +2163,31 @@ table {
   padding: 5px;
   background-color: rgba(255, 255, 255, 0.4);
 }
+.student-results-card__image .wrapper::after {
+  content: "300p";
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  position: absolute;
+  background-color: #cfff32;
+  font-family: "GNF";
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 75%;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  text-transform: uppercase;
+  padding-block: 10px;
+  padding-inline: 15px;
+  border-radius: 40px;
+  border: 1px solid white;
+  z-index: 10;
+}
 .student-results-card__image .image-wrapper {
   background-color: transparent;
+  backdrop-filter: blur(5px);
+  position: relative;
+  box-shadow: 0px 4px 17px 0px rgba(0, 0, 0, 0.1019607843);
 }
 .student-results-card__image img {
   max-width: 100%;
@@ -2808,6 +2857,12 @@ table {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+@media (hover: hover) and (pointer: fine) {
+  .expandable-grid__toggle:hover {
+    backdrop-filter: blur(45px);
+    box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.0784313725), 0px -5px 5px 0px rgba(255, 255, 255, 0.1019607843) inset, 0px 5px 5px 0px rgba(255, 255, 255, 0.1019607843) inset, 4px 0px 10px 0px rgba(255, 255, 255, 0.1019607843) inset, -4px 0px 10px 0px rgba(255, 255, 255, 0.1019607843) inset;
+  }
 }
 
 .advantages {
