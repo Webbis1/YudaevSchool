@@ -12076,7 +12076,38 @@ class CasesSlider {
       },
       observer: true,
       observeParents: true,
-      init: false
+      init: false,
+      breakpoints: {
+        // when window width is >= 1024px - default settings (4 columns, 3 rows)
+        1024: {
+          slidesPerView: 4,
+          grid: {
+            rows: 3,
+            fill: "row"
+          },
+          slidesPerGroup: 4
+        },
+        // when window width is >= 768px and < 1024px - 2 columns, 2 rows
+        768: {
+          slidesPerView: 2,
+          grid: {
+            rows: 2,
+            fill: "row"
+          },
+          slidesPerGroup: 2,
+          spaceBetween: 20
+        },
+        // when window width is < 768px (mobile) - 1 column, 2 rows
+        320: {
+          slidesPerView: 1,
+          grid: {
+            rows: 2,
+            fill: "row"
+          },
+          slidesPerGroup: 1,
+          spaceBetween: 15
+        }
+      }
     });
     swiper.init();
     this.sliders.set(tabId, swiper);
@@ -12132,7 +12163,7 @@ class StudentResults {
     if (!item) return 0;
     const gap = 95;
     const rows = parseInt(this.grid.dataset.initialRows || "2");
-    return item.offsetHeight * rows + gap * (rows - 1) + 10;
+    return item.offsetHeight * rows + gap * (rows - 1);
   }
   toggleGrid() {
     this.isExpanded = !this.isExpanded;
@@ -12669,4 +12700,4 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM полностью загружен");
   initMobileCoursesNavigation();
 });
-//# sourceMappingURL=index-BJIaVGjc.js.map
+//# sourceMappingURL=index-BPDayg9_.js.map
