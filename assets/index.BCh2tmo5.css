@@ -4261,6 +4261,59 @@ body {
     grid-row: auto;
   }
 }
+.start-with-the-basics__card_big {
+  padding: 0;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+}
+.start-with-the-basics__card_big .course-card__image {
+  flex: 1;
+  height: 100%;
+}
+.start-with-the-basics__card_big .course-card__image img {
+  height: 100%;
+  max-height: 515px;
+  object-fit: contain;
+  object-position: right;
+}
+.start-with-the-basics__card_big .course-card__left {
+  padding: 24px;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+.start-with-the-basics__card_big .course-card__left .card-marker {
+  margin-inline: 0;
+  margin-bottom: auto;
+  justify-self: start;
+}
+.start-with-the-basics__card_big .course-card__left .course-card__name {
+  margin-bottom: 14px;
+  padding: 0;
+}
+.start-with-the-basics__card_big .course-card__left .course-card__tags {
+  margin-bottom: 30px;
+  padding: 0;
+}
+.start-with-the-basics__card_big .course-card__left .side-media {
+  background-color: #cfff32;
+  padding: 5px;
+  padding-left: 20px;
+}
+.start-with-the-basics__card_big .course-card__left .side-media__img {
+  background-color: #000000;
+  min-height: 32px;
+  min-width: 32px;
+}
+.start-with-the-basics__card_big .course-card__left .side-media__text {
+  font-family: "Inter";
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 16px;
+  line-height: 130%;
+  letter-spacing: -0.2px;
+  color: #000000;
+}
 
 .from-scratch-to-pro {
   height: 100vh;
