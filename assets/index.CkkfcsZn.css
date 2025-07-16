@@ -1631,7 +1631,11 @@ table {
 .diploma__cards {
   width: 100%;
   gap: 20px;
-  flex-wrap: wrap;
+}
+@media (max-width: 1400px) {
+  .diploma__cards {
+    flex-wrap: wrap;
+  }
 }
 @media (max-width: 375px) {
   .diploma__cards {
@@ -3772,6 +3776,10 @@ table {
     display: none;
   }
 }
+a {
+  cursor: pointer;
+}
+
 .null {
   display: none !important;
 }
