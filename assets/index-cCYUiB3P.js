@@ -12211,87 +12211,6 @@ const initIntersectionObservers = () => {
     observer.observe(element);
   });
 };
-const initRectangleAnimation = () => {
-  const rect = document.querySelector(".rectangle");
-  const circles = [
-    document.querySelector("#circle-1"),
-    document.querySelector("#circle-2"),
-    document.querySelector("#circle-3")
-  ];
-  if (!rect || !circles.every(Boolean)) return;
-  const lengths = circles.map((circle) => {
-    const radius = parseFloat(circle.getAttribute("r"));
-    return 2 * Math.PI * radius;
-  });
-  circles.forEach((circle, i) => {
-    circle.setAttribute("stroke-dasharray", `${lengths[i]} ${lengths[i]}`);
-    circle.setAttribute("stroke-dashoffset", `${lengths[i]}`);
-  });
-  const rectangle_time = 1500;
-  const getCardsWrapperHeight = () => {
-    const el = document.querySelector(
-      ".from-scratch-to-pro__cards"
-    );
-    return el ? el.offsetHeight : 0;
-  };
-  const getCardHeight = () => {
-    const card = document.querySelector(
-      ".from-scratch-to-pro__cards .from-scratch-to-pro__card-section"
-    );
-    return card ? card.offsetHeight : 0;
-  };
-  const getRectangleHeight = () => {
-    const rect2 = document.querySelector(".circle-section");
-    return rect2 ? rect2.offsetHeight : 0;
-  };
-  const getPercentage = (a, b) => b / a * 100;
-  const offset = getPercentage(
-    getCardsWrapperHeight(),
-    (getCardHeight() - getRectangleHeight()) / 2
-  );
-  const tl = gsapWithCSS.timeline({
-    scrollTrigger: {
-      trigger: ".from-scratch-to-pro",
-      start: "top top",
-      end: `+=${rectangle_time}`,
-      scrub: true,
-      pin: true,
-      markers: false,
-      id: "main-timeline"
-    }
-  });
-  const circleAnimation = (id) => {
-    const til = gsapWithCSS.timeline();
-    til.to(id, {
-      strokeDashoffset: 0,
-      duration: 0.25,
-      ease: "none"
-    });
-    return til;
-  };
-  tl.to(
-    rect,
-    {
-      width: "100%",
-      height: "100%",
-      ease: "none",
-      duration: 1
-    },
-    0
-  );
-  tl.add(circleAnimation("#circle-1"), "<0.25");
-  tl.add(circleAnimation("#circle-2"), ">");
-  tl.add(circleAnimation("#circle-3"), ">");
-  tl.to(
-    ".from-scratch-to-pro__cards",
-    {
-      transform: `translate(-50%, ${offset}%)`,
-      duration: 2,
-      ease: "none"
-    },
-    0.7
-  );
-};
 const initSpiralAnimations = () => {
   const leftSpiral = document.querySelector(
     ".from-scratch-to-pro__background-left img"
@@ -12583,7 +12502,6 @@ const initStudentResults = () => {
 };
 document.addEventListener("DOMContentLoaded", () => {
   initIntersectionObservers();
-  initRectangleAnimation();
   initSpiralAnimations();
   initCircleModule();
   initBurgerMenu();
@@ -12700,4 +12618,152 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM полностью загружен");
   initMobileCoursesNavigation();
 });
-//# sourceMappingURL=index-DVrkMCrw.js.map
+const initRectangleAnimation = () => {
+  const rect = document.querySelector(".rectangle");
+  const circles = [
+    document.querySelector("#circle-1"),
+    document.querySelector("#circle-2"),
+    document.querySelector("#circle-3")
+  ];
+  const progressBars = [
+    document.querySelector("#progress-barr-1"),
+    document.querySelector("#progress-barr-2"),
+    document.querySelector("#progress-barr-3")
+  ];
+  if (!rect || !circles.every(Boolean) || !progressBars.every(Boolean)) return;
+  const setupProgressBars = () => {
+    const circleLengths = circles.map((circle) => {
+      const radius = parseFloat(circle.getAttribute("r"));
+      return 2 * Math.PI * radius;
+    });
+    circles.forEach((circle, i) => {
+      circle.setAttribute("stroke-dasharray", `${circleLengths[i]}`);
+      circle.setAttribute("stroke-dashoffset", `${circleLengths[i]}`);
+    });
+    const barLengths2 = progressBars.map((bar) => {
+      const radius = parseFloat(bar.getAttribute("r"));
+      return 2 * Math.PI * radius;
+    });
+    progressBars.forEach((bar, i) => {
+      const circumference = barLengths2[i];
+      let initialOffset = circumference - circumference * (24 / 360);
+      if (i === 1) {
+        initialOffset = circumference - circumference * (48 / 360);
+      } else if (i === 2) {
+        initialOffset = circumference - circumference * (96 / 360);
+      }
+      bar.setAttribute("stroke-dashoffset", `${initialOffset}`);
+      let visibleLength = circumference * (24 / 360);
+      if (i === 0 || i === 1) {
+        visibleLength = circumference * (48 / 360);
+      } else {
+        visibleLength = circumference * (24 / 360);
+      }
+      bar.setAttribute(
+        "stroke-dasharray",
+        `${visibleLength} ${circumference - visibleLength}`
+      );
+    });
+    return { barLengths: barLengths2 };
+  };
+  const { barLengths } = setupProgressBars();
+  const rectangle_time = 1500;
+  const getCardsWrapperHeight = () => {
+    const el = document.querySelector(
+      ".from-scratch-to-pro__cards"
+    );
+    return el ? el.offsetHeight : 0;
+  };
+  const getCardHeight = () => {
+    const card = document.querySelector(
+      ".from-scratch-to-pro__cards .from-scratch-to-pro__card-section"
+    );
+    return card ? card.offsetHeight : 0;
+  };
+  const getRectangleHeight = () => {
+    const rect2 = document.querySelector(".circle-section");
+    return rect2 ? rect2.offsetHeight : 0;
+  };
+  const getPercentage = (a, b) => b / a * 100;
+  const offset = getPercentage(
+    getCardsWrapperHeight(),
+    (getCardHeight() - getRectangleHeight()) / 2
+  );
+  const tl = gsapWithCSS.timeline({
+    scrollTrigger: {
+      trigger: ".from-scratch-to-pro",
+      start: "top top",
+      end: `+=${rectangle_time}`,
+      scrub: true,
+      pin: true,
+      markers: false,
+      id: "main-timeline"
+    }
+  });
+  tl.to(
+    rect,
+    {
+      width: "100%",
+      height: "100%",
+      ease: "none",
+      duration: 1
+    },
+    0
+  );
+  const circleAnimation = (id) => {
+    const til = gsapWithCSS.timeline();
+    til.to(id, {
+      strokeDashoffset: 0,
+      duration: 0.25,
+      ease: "none"
+    });
+    return til;
+  };
+  tl.add(circleAnimation("#circle-1"), "<0.25");
+  tl.add(circleAnimation("#circle-2"), ">");
+  tl.add(circleAnimation("#circle-3"), ">");
+  tl.to(
+    ".from-scratch-to-pro__cards",
+    {
+      transform: `translate(-50%, ${offset}%)`,
+      duration: 2,
+      ease: "none"
+    },
+    0.7
+  );
+  const totalDuration = 2e3 / 1e3;
+  tl.to(
+    progressBars[0],
+    {
+      strokeDashoffset: barLengths[0] * 0.85,
+      // 20% окружности (72°)
+      duration: totalDuration * 0.4,
+      ease: "none"
+    },
+    0.7
+  );
+  tl.to(
+    progressBars[1],
+    {
+      strokeDashoffset: barLengths[1] * 0.85,
+      // 20% окружности (72°)
+      duration: totalDuration * 0.4,
+      ease: "none"
+    },
+    totalDuration * 0.4 + 0.7
+  );
+  tl.to(
+    progressBars[2],
+    {
+      strokeDashoffset: barLengths[2] * 0.65,
+      // 10% окружности (36°)
+      duration: totalDuration * 0.2,
+      ease: "none"
+    },
+    totalDuration * 0.4 + 0.7 + 0.7
+  );
+};
+document.addEventListener("DOMContentLoaded", () => {
+  initRectangleAnimation();
+});
+//# sourceMappingURL=index-cCYUiB3P.js.map
