@@ -12700,4 +12700,4 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM полностью загружен");
   initMobileCoursesNavigation();
 });
-//# sourceMappingURL=index-BBxtzFMn.js.map
+//# sourceMappingURL=index-DVrkMCrw.js.map

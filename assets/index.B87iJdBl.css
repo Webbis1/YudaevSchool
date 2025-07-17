@@ -566,7 +566,7 @@ table {
   position: relative;
   box-shadow: 0px 6px 35px 0px rgba(0, 0, 0, 0.1019607843);
 }
-@media (max-width: 1024px) {
+@media (max-width: 1400px) {
   .from-scratch-to-pro__card {
     min-width: 285px;
   }
@@ -575,6 +575,7 @@ table {
   font-weight: 600;
   font-family: "Inter";
   font-size: 20px;
+  letter-spacing: -0.02em;
 }
 .from-scratch-to-pro__card-discription {
   font-size: 16px;
@@ -783,6 +784,205 @@ table {
   bottom: 10px;
   left: -106%;
   animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.platform:nth-child(2) {
+  background-color: transparent;
+  align-items: flex-start;
+  justify-content: center;
+  background: none;
+  box-shadow: none;
+}
+@media (min-width: 728px) {
+  .platform:nth-child(2) {
+    translate: -40px;
+  }
+}
+.platform__marker {
+  margin-bottom: 20px;
+}
+.platform__text {
+  padding: 20px;
+  gap: 5px;
+  background-color: #f1f1f1;
+  margin-bottom: 9px;
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0px 6px 35px 0px rgba(0, 0, 0, 0.0509803922), 0px -10px 14px 0px rgba(255, 255, 255, 0.5019607843) inset, 0px 10px 14px 0px rgba(255, 255, 255, 0.5019607843) inset, 4px 0px 50px 0px rgba(255, 255, 255, 0.8) inset;
+}
+.platform__title {
+  color: rgba(0, 0, 0, 0.8980392157);
+  letter-spacing: -0.02em;
+  font-family: "Inter";
+  line-height: 125%;
+  font-size: 16px;
+  font-weight: 600;
+}
+.platform__disk {
+  color: rgba(0, 0, 0, 0.4);
+  letter-spacing: -0.02em;
+  font-family: "Inter";
+  line-height: 125%;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.career-center-right .training-to-day__discription {
+  max-width: 80%;
+}
+.career-center-right__image {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+.career-center-right__image img {
+  margin-top: auto;
+  object-fit: contain;
+  object-position: center;
+  max-height: 100%;
+  max-width: 100%;
+  width: 100%;
+}
+
+.career-center-left .payment-after__discription {
+  max-width: 78%;
+}
+.career-center-left__image {
+  position: static;
+}
+.career-center-left__image img.background {
+  min-width: 100%;
+  right: 0;
+  left: 0;
+  top: 0;
+  position: absolute;
+}
+.career-center-left__icon {
+  position: absolute;
+  max-width: 48px;
+  aspect-ratio: 1;
+  top: 90px;
+  animation: icon 2.5s cubic-bezier(0.54, 0.19, 0.33, 0.9) infinite;
+  left: 47px;
+}
+.career-center-left__icon img {
+  object-fit: contain;
+  object-position: center;
+  pointer-events: none;
+}
+.career-center-left__icon:nth-child(4) {
+  top: 175px;
+  left: 11px;
+  animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.career-center-left__icon:nth-child(3) {
+  top: 119px;
+  right: 19px;
+  left: auto;
+  animation-timing-function: cubic-bezier(0.3, 0.1, 0.64, 0.99);
+}
+.career-center-left__icon:nth-child(2) {
+  top: 31px;
+  left: 124px;
+  animation-timing-function: ease-in-out;
+}
+
+.work-check .from-scratch-to-pro__card-discription {
+  max-width: none;
+}
+.work-check__info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  align-items: center;
+  justify-content: center;
+}
+.work-check__time {
+  font-family: "GNF";
+  font-weight: 400;
+  translate: -13px;
+  letter-spacing: -0.05em;
+  font-size: 100px;
+  background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.4) 100%);
+  -webkit-background-clip: text; /* Обрезаем фон по тексту (для Safari/Chrome) */
+  background-clip: text; /* Стандартное свойство */
+  -webkit-text-fill-color: transparent; /* Делаем текст прозрачным (для Safari/Chrome) */
+  color: transparent; /* Делаем текст прозрачным (стандартное свойство) */
+  display: inline-block;
+}
+.work-check__label {
+  right: -50px;
+  top: 5px;
+  background-color: #ceff2f;
+  border-radius: 40px;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #76950f;
+  -webkit-text-fill-color: #76950f;
+  z-index: 3;
+  padding: 5px 10px;
+  line-height: 90%;
+  font-weight: 400;
+  letter-spacing: 0;
+  backdrop-filter: blur(40px);
+  box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.0784313725), -2px -2px 10px 0px rgba(255, 255, 255, 0.8980392157) inset, 2px 2px 10px 0px rgba(255, 255, 255, 0.8980392157) inset;
+}
+.work-check__label.gradient-border {
+  position: absolute;
+}
+.work-check__text {
+  color: rgba(0, 0, 0, 0.4);
+  font-size: 14px;
+  font-family: "Inter";
+  font-weight: 500;
+  text-wrap: nowrap;
+  line-height: 130%;
+  letter-spacing: -0.02em;
+}
+
+.special-offer {
+  background-color: #F9F9F9;
+  padding: 20px;
+  width: 100%;
+  border-radius: 20px;
+  align-items: flex-start;
+  justify-content: start;
+  gap: 15px;
+}
+.special-offer__spa {
+  background-color: transparent;
+  border: none;
+  margin-top: auto;
+  cursor: pointer;
+}
+.special-offer .side-media {
+  padding: 5px;
+  padding-left: 20px;
+  background-color: #FAFAFA;
+  gap: 15px;
+  box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.0509803922);
+}
+.special-offer .side-media__img {
+  min-height: 32px;
+  min-width: 32px;
+}
+.special-offer .side-media__text {
+  color: #323232;
+  padding-inline: 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 130%;
+  letter-spacing: -0.02em;
+}
+.special-offer__title {
+  font-size: 30px;
+  font-weight: 400;
+  font-family: "GNF";
+  line-height: 110%;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
 }
 
 .header {
