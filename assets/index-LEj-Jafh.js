@@ -12619,50 +12619,80 @@ document.addEventListener("DOMContentLoaded", () => {
   initMobileCoursesNavigation();
 });
 const initRectangleAnimation = () => {
+  console.log("start");
   const rect = document.querySelector(".rectangle");
   const circles = [
     document.querySelector("#circle-1"),
     document.querySelector("#circle-2"),
     document.querySelector("#circle-3")
   ];
-  const progressBars = [
-    document.querySelector("#progress-barr-1"),
+  const progressBarsBg = [
+    document.querySelector("#progress-barr-3"),
     document.querySelector("#progress-barr-2"),
-    document.querySelector("#progress-barr-3")
+    document.querySelector("#progress-barr-1")
   ];
-  if (!rect || !circles.every(Boolean) || !progressBars.every(Boolean)) return;
+  const progressBars = [
+    document.querySelector("#progress-barr-3-green"),
+    document.querySelector("#progress-barr-2-green"),
+    document.querySelector("#progress-barr-1-green")
+  ];
+  if (!rect || !circles.every(Boolean) || !progressBarsBg.every(Boolean) || !progressBars.every(Boolean)) {
+    console.log("Missing elements:");
+    if (!rect) {
+      console.log("- Rectangle element (.rectangle) not found");
+    }
+    circles.forEach((circle, index) => {
+      if (!circle) {
+        console.log(`- Circle #${index + 1} (#circle-${index + 1}) not found`);
+      }
+    });
+    progressBarsBg.forEach((bar, index) => {
+      if (!bar) {
+        console.log(
+          `- Progress bar background #${index + 1} (#progress-barr-${index + 1}) not found`
+        );
+      }
+    });
+    progressBars.forEach((bar, index) => {
+      if (!bar) {
+        console.log(
+          `- Progress bar #${index + 1} (#progress-bar-${index + 1}-green) not found`
+        );
+      }
+    });
+    return;
+  }
   const setupProgressBars = () => {
-    const circleLengths = circles.map((circle) => {
-      const radius = parseFloat(circle.getAttribute("r"));
-      return 2 * Math.PI * radius;
-    });
-    circles.forEach((circle, i) => {
-      circle.setAttribute("stroke-dasharray", `${circleLengths[i]}`);
-      circle.setAttribute("stroke-dashoffset", `${circleLengths[i]}`);
-    });
-    const barLengths2 = progressBars.map((bar) => {
+    const startAngles = [0, 0, 0];
+    const endAngles = [24, 48, 28];
+    progressBarsBg.forEach((bar, i) => {
       const radius = parseFloat(bar.getAttribute("r"));
-      return 2 * Math.PI * radius;
-    });
-    progressBars.forEach((bar, i) => {
-      const circumference = barLengths2[i];
-      let initialOffset = circumference - circumference * (24 / 360);
-      if (i === 1) {
-        initialOffset = circumference - circumference * (48 / 360);
-      } else if (i === 2) {
-        initialOffset = circumference - circumference * (96 / 360);
-      }
-      bar.setAttribute("stroke-dashoffset", `${initialOffset}`);
-      let visibleLength = circumference * (24 / 360);
-      if (i === 0 || i === 1) {
-        visibleLength = circumference * (48 / 360);
-      } else {
-        visibleLength = circumference * (24 / 360);
-      }
+      const circumference = 2 * Math.PI * radius;
+      const arcLength = (endAngles[i] - startAngles[i]) / 360 * circumference;
+      const startOffset = startAngles[i] / 360 * circumference;
       bar.setAttribute(
         "stroke-dasharray",
-        `${visibleLength} ${circumference - visibleLength}`
+        `${arcLength} ${circumference - arcLength}`
       );
+      bar.setAttribute("stroke-dashoffset", `${startOffset}`);
+    });
+    const barLengths2 = progressBars.map((bar, i) => {
+      const radius = parseFloat(bar.getAttribute("r"));
+      const circumference = 2 * Math.PI * radius;
+      const arcLength = (endAngles[i] - startAngles[i]) / 360 * circumference;
+      let startOffset = startAngles[i] / 360 * circumference;
+      bar.setAttribute(
+        "stroke-dasharray",
+        `${arcLength} ${circumference - arcLength}`
+      );
+      bar.setAttribute("stroke-dasharray", `0 ${circumference}`);
+      bar.setAttribute("stroke-dashoffset", `${startOffset}`);
+      startOffset = startOffset + arcLength;
+      return {
+        circumference,
+        arcLength,
+        startOffset
+      };
     });
     return { barLengths: barLengths2 };
   };
@@ -12731,39 +12761,34 @@ const initRectangleAnimation = () => {
     },
     0.7
   );
-  const totalDuration = 2e3 / 1e3;
+  const totalDuration = 2;
+  tl.to(progressBars[1], {
+    strokeDasharray: `${barLengths[1].arcLength} ${barLengths[1].circumference - barLengths[1].arcLength}`,
+    duration: totalDuration * 0.4,
+    ease: "none"
+  }, 0.7 + totalDuration * 0.4);
   tl.to(
-    progressBars[0],
+    progressBars[2],
     {
-      strokeDashoffset: barLengths[0] * 0.85,
-      // 20% окружности (72°)
+      // strokeDashoffset: barLengths[1].startOffset,
+      strokeDasharray: `${barLengths[2].arcLength} ${barLengths[2].circumference - barLengths[2].arcLength}`,
       duration: totalDuration * 0.4,
       ease: "none"
     },
     0.7
   );
   tl.to(
-    progressBars[1],
+    progressBars[0],
     {
-      strokeDashoffset: barLengths[1] * 0.85,
-      // 20% окружности (72°)
-      duration: totalDuration * 0.4,
-      ease: "none"
-    },
-    totalDuration * 0.4 + 0.7
-  );
-  tl.to(
-    progressBars[2],
-    {
-      strokeDashoffset: barLengths[2] * 0.65,
-      // 10% окружности (36°)
+      // strokeDashoffset: barLengths[2].startOffset,
+      strokeDasharray: `${barLengths[0].arcLength} ${barLengths[0].circumference - barLengths[0].arcLength}`,
       duration: totalDuration * 0.2,
       ease: "none"
     },
-    totalDuration * 0.4 + 0.7 + 0.7
+    0.7 + totalDuration * 0.4 + totalDuration * 0.4
   );
 };
 document.addEventListener("DOMContentLoaded", () => {
   initRectangleAnimation();
 });
-//# sourceMappingURL=index-cCYUiB3P.js.map
+//# sourceMappingURL=index-LEj-Jafh.js.map
