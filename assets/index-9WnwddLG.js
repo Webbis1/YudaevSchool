@@ -11980,6 +11980,13 @@ function EffectFlip(_ref) {
   });
 }
 gsapWithCSS.registerPlugin(ScrollTrigger);
+ScrollTrigger.config({
+  autoRefreshEvents: "visibilitychange,DOMContentLoaded,load"
+});
+gsapWithCSS.defaults({
+  // force3D: false, // Отключает автоматическое 3D-преобразование
+  // transformPerspective: 1000 // Фиксирует перспективу для 3D-элементов
+});
 class Tabs {
   tabs;
   buttons;
@@ -12513,24 +12520,6 @@ document.addEventListener("DOMContentLoaded", () => {
   new Tabs();
   new CasesSlider();
 });
-document.addEventListener("DOMContentLoaded", () => {
-  const toggleBtn = document.querySelector(".fon-toggle");
-  const isFonEnabled = localStorage.getItem("fonEnabled") !== "false";
-  if (isFonEnabled) {
-    document.body.classList.add("fon-enabled");
-  } else {
-    document.body.classList.remove("fon-enabled");
-  }
-  toggleBtn?.addEventListener("click", () => {
-    document.body.classList.toggle("fon-enabled");
-    const isEnabled = document.body.classList.contains("fon-enabled");
-    localStorage.setItem("fonEnabled", isEnabled.toString());
-    toggleBtn.style.transform = "scale(0.9)";
-    setTimeout(() => {
-      toggleBtn.style.transform = "";
-    }, 200);
-  });
-});
 const initMobileCoursesNavigation = () => {
   console.log("Функция initMobileCoursesNavigation вызвана");
   console.log("Поиск элементов...");
@@ -12620,111 +12609,39 @@ document.addEventListener("DOMContentLoaded", () => {
   initMobileCoursesNavigation();
 });
 const initRectangleAnimation = () => {
-  console.log("start");
-  const rect = document.querySelector(".rectangle");
-  const circles = [
-    document.querySelector("#circle-1"),
-    document.querySelector("#circle-2"),
-    document.querySelector("#circle-3")
-  ];
-  const progressBarsBg = [
-    document.querySelector("#progress-barr-3"),
-    document.querySelector("#progress-barr-2"),
-    document.querySelector("#progress-barr-1")
-  ];
-  const progressBars = [
-    document.querySelector("#progress-barr-3-green"),
-    document.querySelector("#progress-barr-2-green"),
-    document.querySelector("#progress-barr-1-green")
-  ];
-  if (!rect || !circles.every(Boolean) || !progressBarsBg.every(Boolean) || !progressBars.every(Boolean)) {
-    console.log("Missing elements:");
-    if (!rect) {
-      console.log("- Rectangle element (.rectangle) not found");
-    }
-    circles.forEach((circle, index) => {
-      if (!circle) {
-        console.log(`- Circle #${index + 1} (#circle-${index + 1}) not found`);
-      }
-    });
-    progressBarsBg.forEach((bar, index) => {
-      if (!bar) {
-        console.log(
-          `- Progress bar background #${index + 1} (#progress-barr-${index + 1}) not found`
-        );
-      }
-    });
-    progressBars.forEach((bar, index) => {
-      if (!bar) {
-        console.log(
-          `- Progress bar #${index + 1} (#progress-bar-${index + 1}-green) not found`
-        );
-      }
-    });
-    return;
-  }
-  const setupProgressBars = () => {
-    const startAngles = [0, 0, 0];
-    const endAngles = [24, 48, 28];
-    progressBarsBg.forEach((bar, i) => {
-      const radius = parseFloat(bar.getAttribute("r"));
-      const circumference = 2 * Math.PI * radius;
-      const arcLength = (endAngles[i] - startAngles[i]) / 360 * circumference;
-      const startOffset = startAngles[i] / 360 * circumference;
-      bar.setAttribute(
-        "stroke-dasharray",
-        `${arcLength} ${circumference - arcLength}`
-      );
-      bar.setAttribute("stroke-dashoffset", `${startOffset}`);
-    });
-    const barLengths2 = progressBars.map((bar, i) => {
-      const radius = parseFloat(bar.getAttribute("r"));
-      const circumference = 2 * Math.PI * radius;
-      const arcLength = (endAngles[i] - startAngles[i]) / 360 * circumference;
-      let startOffset = startAngles[i] / 360 * circumference;
-      bar.setAttribute(
-        "stroke-dasharray",
-        `${arcLength} ${circumference - arcLength}`
-      );
-      bar.setAttribute("stroke-dasharray", `0 ${circumference}`);
-      bar.setAttribute("stroke-dashoffset", `${startOffset}`);
-      startOffset = startOffset + arcLength;
-      return {
-        circumference,
-        arcLength,
-        startOffset
-      };
-    });
-    return { barLengths: barLengths2 };
+  const elements = {
+    rect: document.querySelector(".rectangle"),
+    circles: [
+      document.querySelector("#circle-1"),
+      document.querySelector("#circle-2"),
+      document.querySelector("#circle-3")
+    ],
+    progressBarsBg: [
+      document.querySelector("#progress-barr-3"),
+      document.querySelector("#progress-barr-2"),
+      document.querySelector("#progress-barr-1")
+    ],
+    progressBars: [
+      document.querySelector("#progress-barr-3-green"),
+      document.querySelector("#progress-barr-2-green"),
+      document.querySelector("#progress-barr-1-green")
+    ]
   };
-  const { barLengths } = setupProgressBars();
-  const rectangle_time = 1500;
-  const getCardsWrapperHeight = () => {
-    const el = document.querySelector(
-      ".from-scratch-to-pro__cards"
-    );
-    return el ? el.offsetHeight : 0;
-  };
-  const getCardHeight = () => {
-    const card = document.querySelector(
-      ".from-scratch-to-pro__cards .from-scratch-to-pro__card-section"
-    );
-    return card ? card.offsetHeight : 0;
-  };
-  const getRectangleHeight = () => {
-    const rect2 = document.querySelector(".circle-section");
-    return rect2 ? rect2.offsetHeight : 0;
-  };
-  const getPercentage = (a, b) => b / a * 100;
-  const offset = getPercentage(
-    getCardsWrapperHeight(),
-    (getCardHeight() - getRectangleHeight()) / 2
+  if (!validateElements(elements)) return;
+  const { barLengths } = setupProgressBars(
+    elements.progressBarsBg,
+    elements.progressBars
   );
+  const config3 = {
+    rectangleTime: 1500,
+    totalDuration: 2,
+    offset: calculateOffset()
+  };
   const tl = gsapWithCSS.timeline({
     scrollTrigger: {
       trigger: ".from-scratch-to-pro",
       start: "top top",
-      end: `+=${rectangle_time}`,
+      end: `+=${config3.rectangleTime}`,
       scrub: true,
       pin: true,
       markers: false,
@@ -12732,67 +12649,116 @@ const initRectangleAnimation = () => {
     }
   });
   tl.to(
-    rect,
+    elements.rect,
     {
       width: "100%",
       height: "100%",
       ease: "none",
-      duration: 1
+      duration: 1,
+      transformStyle: "flat"
+      // force3D: false,
     },
     0
   );
-  const circleAnimation = (id) => {
-    const til = gsapWithCSS.timeline();
-    til.to(id, {
-      strokeDashoffset: 0,
-      duration: 0.25,
-      ease: "none"
-    });
-    return til;
-  };
-  tl.add(circleAnimation("#circle-1"), "<0.25");
-  tl.add(circleAnimation("#circle-2"), ">");
-  tl.add(circleAnimation("#circle-3"), ">");
+  animateCircles(tl);
   tl.to(
     ".from-scratch-to-pro__cards",
     {
-      transform: `translate(-50%, ${offset}%)`,
+      transform: `translate(-50%, ${config3.offset}%)`,
       duration: 2,
-      ease: "none"
+      ease: "none",
+      force3D: false,
+      transformStyle: "flat"
     },
     0.7
   );
-  const totalDuration = 2;
-  tl.to(
-    progressBars[1],
-    {
-      strokeDasharray: `${barLengths[1].arcLength} ${barLengths[1].circumference - barLengths[1].arcLength}`,
-      duration: totalDuration * 0.4,
-      ease: "none"
-    },
-    0.7 + totalDuration * 0.4
-  );
-  tl.to(
-    progressBars[2],
-    {
-      // strokeDashoffset: barLengths[1].startOffset,
-      strokeDasharray: `${barLengths[2].arcLength} ${barLengths[2].circumference - barLengths[2].arcLength}`,
-      duration: totalDuration * 0.4,
-      ease: "none"
-    },
-    0.7
-  );
-  tl.to(
-    progressBars[0],
-    {
-      // strokeDashoffset: barLengths[2].startOffset,
-      strokeDasharray: `${barLengths[0].arcLength} ${barLengths[0].circumference - barLengths[0].arcLength}`,
-      duration: totalDuration * 0.2,
-      ease: "none"
-    },
-    0.7 + totalDuration * 0.4 + totalDuration * 0.4
+  animateProgressBars(
+    tl,
+    elements.progressBars,
+    barLengths,
+    config3.totalDuration
   );
 };
-document.addEventListener("DOMContentLoaded", () => {
-});
-//# sourceMappingURL=index-_-oq52Kd.js.map
+function validateElements(elements) {
+  const missing = [];
+  if (!elements.rect) missing.push("Rectangle element (.rectangle)");
+  elements.circles.forEach((circle, i) => {
+    if (!circle) missing.push(`Circle #${i + 1} (#circle-${i + 1})`);
+  });
+  elements.progressBarsBg.forEach((bar, i) => {
+    if (!bar)
+      missing.push(
+        `Progress bar background #${i + 1} (#progress-barr-${i + 1})`
+      );
+  });
+  elements.progressBars.forEach((bar, i) => {
+    if (!bar)
+      missing.push(`Progress bar #${i + 1} (#progress-bar-${i + 1}-green)`);
+  });
+  if (missing.length) {
+    console.log("Missing elements:", missing.join(", "));
+    return false;
+  }
+  return true;
+}
+function setupProgressBars(bgBars, progressBars) {
+  const startAngles = [0, 0, 0];
+  const endAngles = [24, 48, 28];
+  bgBars.forEach((bar, i) => {
+    const radius = parseFloat(bar.getAttribute("r"));
+    const circumference = 2 * Math.PI * radius;
+    const arcLength = (endAngles[i] - startAngles[i]) / 360 * circumference;
+    const startOffset = startAngles[i] / 360 * circumference;
+    bar.setAttribute(
+      "stroke-dasharray",
+      `${arcLength} ${circumference - arcLength}`
+    );
+    bar.setAttribute("stroke-dashoffset", `${startOffset}`);
+  });
+  return {
+    barLengths: progressBars.map((bar, i) => {
+      const radius = parseFloat(bar.getAttribute("r"));
+      const circumference = 2 * Math.PI * radius;
+      const arcLength = (endAngles[i] - startAngles[i]) / 360 * circumference;
+      const startOffset = startAngles[i] / 360 * circumference;
+      bar.setAttribute("stroke-dasharray", `0 ${circumference}`);
+      bar.setAttribute("stroke-dashoffset", `${startOffset}`);
+      return { circumference, arcLength, startOffset };
+    })
+  };
+}
+function calculateOffset() {
+  const wrapper = document.querySelector(
+    ".from-scratch-to-pro__cards"
+  );
+  const card = document.querySelector(
+    ".from-scratch-to-pro__card-section"
+  );
+  const rect = document.querySelector(".circle-section");
+  if (!wrapper || !card || !rect) return 0;
+  return (card.offsetHeight - rect.offsetHeight) / 2 / wrapper.offsetHeight * 100;
+}
+function animateCircles(tl) {
+  const circleAnim = (id) => {
+    return gsapWithCSS.timeline().to(id, { strokeDashoffset: 0, duration: 0.25, ease: "none", force3D: false });
+  };
+  tl.add(circleAnim("#circle-1"), "<0.25").add(circleAnim("#circle-2"), ">").add(circleAnim("#circle-3"), ">");
+}
+function animateProgressBars(tl, progressBars, barLengths, totalDuration) {
+  const animationOrder = [2, 1, 0];
+  const durations = [0.4, 0.4, 0.2];
+  const delays = [0.7, 0.7 + totalDuration * 0.4, 0.7 + totalDuration * 0.8];
+  animationOrder.forEach((barIndex, i) => {
+    tl.to(
+      progressBars[barIndex],
+      {
+        strokeDasharray: `${barLengths[barIndex].arcLength} ${barLengths[barIndex].circumference - barLengths[barIndex].arcLength}`,
+        duration: durations[i],
+        ease: "none",
+        force3D: false
+      },
+      delays[i]
+    );
+  });
+}
+//# sourceMappingURL=index-9WnwddLG.js.map

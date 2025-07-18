@@ -541,6 +541,8 @@ table {
   line-height: 135%;
   letter-spacing: 0.2px;
   color: rgb(145, 145, 145);
+  font-smooth: always;
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 
 .from-scratch-to-pro__card-section {
@@ -576,6 +578,8 @@ table {
   font-family: "Inter";
   font-size: 20px;
   letter-spacing: -0.02em;
+  font-smooth: always;
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 .from-scratch-to-pro__card-discription {
   font-size: 16px;
@@ -583,6 +587,8 @@ table {
   font-weight: 500;
   font-family: "Inter";
   letter-spacing: 0.3px;
+  font-smooth: always;
+  -webkit-font-smoothing: subpixel-antialiased;
   color: rgba(0, 0, 0, 0.4);
 }
 .from-scratch-to-pro__card-images {
@@ -4031,6 +4037,10 @@ table {
     display: none;
   }
 }
+svg {
+  shape-rendering: crispEdges; /* Для четких линий */
+}
+
 a {
   cursor: pointer;
 }
@@ -4761,6 +4771,7 @@ body {
   justify-content: flex-start;
   background: transparent;
   gap: 230px;
+  will-change: transform;
 }
 
 .circle-section {
