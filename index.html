@@ -3925,36 +3925,60 @@
       <div class="faq__separator separator"></div>
     </div>
   </section>
-  <section class="questions-block container column">
-    <div class="questions-block__title-section">
-      <div class="section-name gradient-border">
-        <div class="faq__number section-name__index">12</div>
-        <div class="section-name__text-wrapper gradient-border">
-          <div class="section-name__text">Остались вопросы?</div>
+  <section class="questions-block">
+      <div class="questions-block__title-section">
+        <div class="section-name">
+          <div class="faq__number section-name__index">12</div>
+          <div class="section-name__text-wrapper">
+            <div class="section-name__text">Остались вопросы?</div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="questions-block__content null">
-      <div class="questions-container">
-        <div class="question-subtitle-container">
-          <div class="questions-block__subtitle">
-            <p>Оставьте заявку, если вы не нашли ответ <span class="text-gray">на свой вопрос</span></p>
-          </div>
-          <div class="question__info">
-            <p>Наша поддержка проконсультирует вас по любому вопросу</p>
-            <form class="question-block__form" action="">
-              <input class="question-block__input" type="text" placeholder="Имя"/>
-              <input class="question-block__input" type="number"/>
-              <input class="question-block__input" type="email" placeholder="Почта"/>
-              <button class="question-block__form-button">
-                <p>Оставить заявку</p>
+      <div class="questions-block__content">
+        <div class="questions-container">
+
+          <div class="question-subtitle-container">
+            <div class="questions-block__subtitle">
+              <p>
+                Оставьте заявку, если вы не нашли ответ <span class="text-gray">на свой вопрос</span>
+              </p>
+            </div>
+
+            <div class="question__info">
+              <p>Наша поддержка проконсультирует вас по любому вопросу</p>
+            </div>
+
+            <form action="" class="question-block__form">
+              <input type="text" placeholder="Имя" class="question-block__input">
+              <div class="question-block__input phone-input">
+                <div class="phone-input__phone-code">
+                  <select>
+                    <option value="+375">+375</option>
+                    <option value="+7">+7</option>
+                    <option value="+380">+380</option>
+                  </select>
+                </div>
+                <input type="tel" placeholder="(29) 111-11-11" class="phone-input__phone-number">
+              </div>
+              <input type="email" placeholder="Почта" class="question-block__input last-input">
+
+              <button class="question-block__form-button question-button">
+                <div class="question-button__content">
+                  <p>Оставить заявку</p>
+                  <div class="question-button__button-icon">
+                    <img src="./assets/images/button-arrow.svg" alt="">
+                  </div>
+                </div>
               </button>
             </form>
           </div>
+
         </div>
+
+
+
       </div>
-    </div>
-  </section>
+    </section>
 </main>
 <footer class="footer">
   <div class="footer__container container gradient-border">
