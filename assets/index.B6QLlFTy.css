@@ -4344,6 +4344,7 @@ circle {
 .faq__questions {
   border-bottom: 1px solid;
   gap: 10px;
+  max-width: 763px;
   border-image-source: linear-gradient(
     90deg,
     rgba(0, 0, 0, 0) 0%,
@@ -6475,4 +6476,8 @@ button.swiper-pagination-bullet {
   text-transform: uppercase;
   width: 100%;
   outline: none;
+}
+
+.faq__questions {
+  max-width: 763px;
 }
