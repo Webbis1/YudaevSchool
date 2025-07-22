@@ -6231,6 +6231,7 @@ button.swiper-pagination-bullet {
 .questions-container {
   width: 89.3%;
   margin: 0 auto;
+  max-width: 763px;
 }
 
 @media (min-width: 400px) {
