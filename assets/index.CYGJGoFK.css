@@ -3087,19 +3087,18 @@ circle {
 .diploma__card {
   border-radius: 40px;
   box-shadow: 0px 6px 30px 0px rgba(0, 0, 0, 0.1019607843);
-  aspect-ratio: 1227/650;
   max-width: 100%;
 }
 .diploma__cards {
   width: 100%;
   gap: 20px;
 }
-@media (max-width: 1400px) {
+@media (max-width: 1100px) {
   .diploma__cards {
     flex-wrap: wrap;
   }
 }
-@media (max-width: 375px) {
+@media (max-width: 700px) {
   .diploma__cards {
     flex-direction: column;
   }
@@ -3122,8 +3121,7 @@ circle {
 }
 
 .benefits {
-  flex-grow: 613;
-  background-color: #cfff32;
+  background: conic-gradient(from 221.6deg at 50% 50%, #F0FFC4 0deg, #CFFF32 360deg);
   align-items: flex-start;
   padding: 30px;
   padding-bottom: 0;
@@ -3143,12 +3141,12 @@ circle {
   border-bottom-right-radius: 0;
   display: flex;
   align-items: flex-end;
-  padding-inline: 89px;
   padding-top: 89px;
   justify-content: center;
 }
 .benefits__discription {
   color: rgba(0, 0, 0, 0.5019607843);
+  letter-spacing: -0.02em;
   font-weight: 500;
   font-size: 16px;
   line-height: 130%;
@@ -3163,6 +3161,7 @@ circle {
   padding: 10px;
   max-width: 154px;
   display: flex;
+  animation: float 4s infinite linear;
   flex-direction: column;
   gap: 16px;
 }
@@ -3177,21 +3176,27 @@ circle {
 }
 
 .qualification {
-  flex-grow: 1227;
   position: relative;
   background-color: #f4f4f4;
   justify-content: end;
   min-height: 578px;
 }
 @media (max-width: 1024px) {
-  .qualification {
+  .qualification.row {
     flex-direction: column;
     align-items: flex-end;
   }
 }
 .qualification__card {
   position: absolute;
+  max-height: 55%;
+  animation: float 6s infinite linear;
+  object-fit: contain;
+  object-position: center;
   width: 54%;
+}
+.qualification__card:nth-child(1) {
+  animation-timing-function: cubic-bezier(0.4, 0.2, 0.6, 1);
 }
 .qualification__card_document {
   left: 17.25%;
@@ -3203,6 +3208,7 @@ circle {
 }
 .qualification__curtain {
   z-index: 2;
+  overflow: hidden;
   padding: 30px;
   background: repeating-linear-gradient(to right, transparent 0px, transparent 9px, rgba(0, 0, 0, 0.1) 9px, rgba(255, 255, 255, 0.1) 18px);
   backdrop-filter: blur(15px);
@@ -3219,10 +3225,9 @@ circle {
   color: rgba(0, 0, 0, 0.4);
   font-family: "Inter";
   font-weight: 500;
-  font-style: Medium;
   font-size: 16px;
   line-height: 130%;
-  letter-spacing: -2%;
+  letter-spacing: -0.02em;
   vertical-align: bottom;
   padding-right: 106px;
 }
@@ -3231,8 +3236,18 @@ circle {
   font-weight: 600;
   font-size: 20px;
   line-height: 120%;
-  letter-spacing: -2%;
+  letter-spacing: -0.02em;
   vertical-align: bottom;
+}
+.qualification__title::before {
+  background-color: rgba(248, 248, 248, 0.3843137255);
+  backdrop-filter: blur(60px);
+  content: "";
+  position: absolute;
+  padding: 120px 150px;
+  border-radius: 100px;
+  translate: 0% -18%;
+  z-index: -1;
 }
 .qualification__cta {
   position: absolute;
@@ -4791,22 +4806,9 @@ circle {
     display: none;
   }
 }
-@keyframes float {
-  0%, 100% {
-    transform: translate(0, 0);
-  }
-  25% {
-    transform: translate(0, -10%);
-  }
-  50% {
-    transform: translate(0, 0%);
-  }
-  75% {
-    transform: translate(0, 10%);
-  }
-}
 .employment-opportunities {
   flex: 1;
+  overflow: hidden;
   justify-content: space-between;
   background: radial-gradient(50% 50% at 50% 50%, #ffffff 0%, #f2f2f2 100%);
   max-height: 650px;
@@ -4815,13 +4817,28 @@ circle {
   margin-bottom: auto;
 }
 .employment-opportunities__count {
-  font-family: GNF;
+  font-family: "GNF";
   font-weight: 400;
   font-style: Regular;
   font-size: 170px;
   line-height: 120%;
   letter-spacing: -0.01em;
   text-transform: uppercase;
+}
+@media (max-width: 1440px) {
+  .employment-opportunities__count {
+    font-size: 120px;
+  }
+}
+@media (max-width: 1024px) {
+  .employment-opportunities__count {
+    font-size: 90px;
+  }
+}
+@media (max-width: 375px) {
+  .employment-opportunities__count {
+    font-size: 110px;
+  }
 }
 .employment-opportunities__disk {
   font-family: "Inter";
@@ -4836,7 +4853,6 @@ circle {
 }
 .employment-opportunities__image {
   max-width: 100%;
-  overflow: hidden;
   flex: 1;
   max-height: 100%;
   display: flex;
@@ -4855,13 +4871,28 @@ circle {
   position: absolute;
 }
 .employment-opportunities__sub-count {
-  font-family: GNF;
+  font-family: "GNF";
   font-weight: 400;
-  font-style: Regular;
   font-size: 30px;
+  font-size: 34px;
   line-height: 120%;
   letter-spacing: -0.01em;
   text-transform: uppercase;
+}
+@media (max-width: 1440px) {
+  .employment-opportunities__sub-count {
+    font-size: 28px;
+  }
+}
+@media (max-width: 1024px) {
+  .employment-opportunities__sub-count {
+    font-size: 22px;
+  }
+}
+@media (max-width: 375px) {
+  .employment-opportunities__sub-count {
+    font-size: 26px;
+  }
 }
 .employment-opportunities__text {
   padding: 30px;
@@ -4882,6 +4913,12 @@ circle {
 .help-with-vacancies__content {
   width: 100%;
   gap: 20px;
+}
+@media (max-width: 1023px) {
+  .help-with-vacancies__content.row {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 .help-with-vacancies__title.section-title {
   font-size: 38px;
@@ -4912,8 +4949,17 @@ circle {
   align-items: center;
   flex: 1;
   padding: 30px;
-  max-width: 676px;
   position: relative;
+}
+@media (min-width: 1024px) {
+  .join {
+    max-width: 676px;
+  }
+}
+@media (max-width: 1023px) {
+  .join {
+    width: 100%;
+  }
 }
 .join__card {
   animation: icon 3s infinite;
@@ -5073,33 +5119,33 @@ circle {
   border-radius: 24px;
 }
 .tower-card:nth-child(6) {
-  top: 24%;
-  left: 55%;
+  top: 180px;
+  left: 160px;
   animation-timing-function: cubic-bezier(0.36, 0.05, 0.64, 1);
 }
 .tower-card:nth-child(2) {
-  top: -7%;
-  right: 8%;
+  top: -70px;
+  right: 80px;
   animation-timing-function: cubic-bezier(0.25, 0.1, 0.7, 1.1);
 }
 .tower-card:nth-child(3) {
-  bottom: 30%;
-  right: -5%;
+  bottom: 90px;
+  right: -50px;
   animation-timing-function: cubic-bezier(0.18, 0.5, 0.8, 1);
 }
 .tower-card:nth-child(4) {
-  bottom: 3%;
-  left: 57%;
+  bottom: 3px;
+  left: 57px;
   animation-timing-function: cubic-bezier(0.4, 0, 0.4, 1);
 }
 .tower-card:nth-child(5) {
-  top: 11%;
-  left: 24%;
+  top: 11px;
+  left: 42%;
   animation-timing-function: cubic-bezier(0.3, 0.05, 0.5, 1.1);
 }
 .tower-card:nth-child(7) {
-  top: 49%;
-  left: 14%;
+  top: 55%;
+  left: 51%;
   animation-timing-function: cubic-bezier(0.15, 0.2, 0.75, 0.9);
 }
 .tower-card__remove {
@@ -5541,6 +5587,20 @@ button {
   display: none !important;
 }
 
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(0, -5%);
+  }
+  50% {
+    transform: translate(0, 0%);
+  }
+  75% {
+    transform: translate(0, 5%);
+  }
+}
 .fon {
   position: absolute;
   top: 0;
