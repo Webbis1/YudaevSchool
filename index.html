@@ -26,11 +26,25 @@
     <meta property="og:title" content="Yudaev School" />
     <meta property="og:description" content="made by Webbis" />
     <meta property="og:image" content="favicon.ico" />
-    <script type="module" crossorigin src="./assets/index-9WnwddLG.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index.BYhjCBmo.css">
+    <script type="module" crossorigin src="./assets/index-CTRWidKz.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index.B6QLlFTy.css">
   </head>
   <body>
+    <!-- index.html -->
+    <script>
+      fetch("sprite.svg")
+        .then((response) => response.text())
+        .then((data) => {
+          const parser = new DOMParser();
+          const svg = parser
+            .parseFromString(data, "image/svg+xml")
+            .querySelector("svg");
+          svg.style.display = "none";
+          document.body.prepend(svg);
+        });
+    </script>
     
+<!-- mixins.pug-->
 <header class="header container">
   <nav class="header__desktop row">
     <div class="header__logo row">
@@ -317,8 +331,16 @@
             </div>
             <div class="course-card__name">Web-дизайн с нуля</div>
             <div class="course-card__tags"><span class="course-card__tag">Индивидуальная обратная связь</span><br/><span class="course-card__tag">Сертификат</span><span class="course-card__tag">3 работы в портфолио</span>
-            </div><a href=""> 
-              <div class="green-arrow course-card__link"><img loading="lazy" src="./assets/images/green-arrow.svg" alt=""/></div></a>
+            </div><a class="course-card__desktop-link" href="">
+              <div class="green-arrow course-card__link"><img loading="lazy" src="./assets/images/green-arrow.svg" alt=""/></div></a><a class="course-card__mobile-link" href="#">
+              <div class="side-media row gradient-border">
+                <div class="side-media__text">Подробнее</div>
+                <div class="side-media__svg gradient-border">
+                  <svg width="16" height="16" viewBox="0 0 24 24">
+                    <use href="#arrow-diagonal-16"></use>
+                  </svg>
+                </div>
+              </div></a>
           </div>
           <div class="course-card start-with-the-basics__card">
             <div class="course-card__image"><img loading="lazy" src="./assets/images/02/d9ce11eb54039a199c19e9908e72a39e9f198fae (1).webp" alt="Дизайнер карточек маркетплейсов"/></div>
@@ -328,8 +350,16 @@
             </div>
             <div class="course-card__name">Дизайнер карточек маркетплейсов</div>
             <div class="course-card__tags"><span class="course-card__tag">Индивидуальная обратная связь</span><br/><span class="course-card__tag">Сертификат</span><span class="course-card__tag">3 работы в портфолио</span>
-            </div><a href=""> 
-              <div class="green-arrow course-card__link"><img loading="lazy" src="./assets/images/green-arrow.svg" alt=""/></div></a>
+            </div><a class="course-card__desktop-link" href="">
+              <div class="green-arrow course-card__link"><img loading="lazy" src="./assets/images/green-arrow.svg" alt=""/></div></a><a class="course-card__mobile-link" href="#">
+              <div class="side-media row gradient-border">
+                <div class="side-media__text">Подробнее</div>
+                <div class="side-media__svg gradient-border">
+                  <svg width="16" height="16" viewBox="0 0 24 24">
+                    <use href="#arrow-diagonal-16"></use>
+                  </svg>
+                </div>
+              </div></a>
           </div>
           <div class="course-card start-with-the-basics__card">
             <div class="course-card__image"><img loading="lazy" src="./assets/images/02/3e6dd87e633377c092b5619ced2f272e6ea14774.webp" alt="Дизайнер карточек маркетплейсов"/></div>
@@ -339,8 +369,16 @@
             </div>
             <div class="course-card__name">Дизайнер карточек маркетплейсов</div>
             <div class="course-card__tags"><span class="course-card__tag">Индивидуальная обратная связь</span><br/><span class="course-card__tag">Сертификат</span><span class="course-card__tag">3 работы в портфолио</span>
-            </div><a href=""> 
-              <div class="green-arrow course-card__link"><img loading="lazy" src="./assets/images/green-arrow.svg" alt=""/></div></a>
+            </div><a class="course-card__desktop-link" href="">
+              <div class="green-arrow course-card__link"><img loading="lazy" src="./assets/images/green-arrow.svg" alt=""/></div></a><a class="course-card__mobile-link" href="#">
+              <div class="side-media row gradient-border">
+                <div class="side-media__text">Подробнее</div>
+                <div class="side-media__svg gradient-border">
+                  <svg width="16" height="16" viewBox="0 0 24 24">
+                    <use href="#arrow-diagonal-16"></use>
+                  </svg>
+                </div>
+              </div></a>
           </div>
           <div class="course-card start-with-the-basics__card">
             <div class="course-card__image"><img loading="lazy" src="./assets/images/02/877202577bf322bb5ed42c3c82940101b43f12ed.webp" alt="Web-дизайн с нуля"/></div>
@@ -350,8 +388,16 @@
             </div>
             <div class="course-card__name">Web-дизайн с нуля</div>
             <div class="course-card__tags"><span class="course-card__tag">Индивидуальная обратная связь</span><br/><span class="course-card__tag">Сертификат</span><span class="course-card__tag">3 работы в портфолио</span>
-            </div><a href=""> 
-              <div class="green-arrow course-card__link"><img loading="lazy" src="./assets/images/green-arrow.svg" alt=""/></div></a>
+            </div><a class="course-card__desktop-link" href="">
+              <div class="green-arrow course-card__link"><img loading="lazy" src="./assets/images/green-arrow.svg" alt=""/></div></a><a class="course-card__mobile-link" href="#">
+              <div class="side-media row gradient-border">
+                <div class="side-media__text">Подробнее</div>
+                <div class="side-media__svg gradient-border">
+                  <svg width="16" height="16" viewBox="0 0 24 24">
+                    <use href="#arrow-diagonal-16"></use>
+                  </svg>
+                </div>
+              </div></a>
           </div>
           <div class="course-card start-with-the-basics__card start-with-the-basics__card_big row">
             <div class="course-card__left column">
@@ -367,6 +413,110 @@
                 </div></a>
             </div>
             <div class="course-card__image"><img loading="lazy" src="./assets/images/02/6a75e9a752846c8e3e21f0fa541cb12a257e1e97.webp" alt="Старт в 3D-визуализации"/></div>
+          </div>
+        </div>
+        <div class="start-with-the-basics__swiper">
+          <div class="mobile-slider"> 
+            <div class="swiper">
+              <div class="swiper-wrapper">
+                <div class="course-card start-with-the-the-basics__card swiper-slide">
+                  <div class="course-card__image"><img loading="lazy" src="./assets/images/02/Course cards (1).webp" alt="Web-дизайн с нуля"/></div>
+                  <div class="card-marker">
+                    <div class="card-marker-icon gradient-border black"><img loading="lazy" src="./assets/images/unlock-icon.svg" alt="Бесплатный курс"/></div>
+                    <div class="card-marker-text">Бесплатный курс</div>
+                  </div>
+                  <div class="course-card__name">Web-дизайн с нуля</div>
+                  <div class="course-card__tags"><span class="course-card__tag">Индивидуальная обратная связь</span><br/><span class="course-card__tag">Сертификат</span><span class="course-card__tag">3 работы в портфолио</span>
+                  </div><a class="course-card__desktop-link" href="">
+                    <div class="green-arrow course-card__link"><img loading="lazy" src="./assets/images/green-arrow.svg" alt=""/></div></a><a class="course-card__mobile-link" href="#">
+                    <div class="side-media row gradient-border">
+                      <div class="side-media__text">Подробнее</div>
+                      <div class="side-media__svg gradient-border">
+                        <svg width="16" height="16" viewBox="0 0 24 24">
+                          <use href="#arrow-diagonal-16"></use>
+                        </svg>
+                      </div>
+                    </div></a>
+                </div>
+                <div class="course-card start-with-the-basics__card swiper-slide">
+                  <div class="course-card__image"><img loading="lazy" src="./assets/images/02/d9ce11eb54039a199c19e9908e72a39e9f198fae (1).webp" alt="Дизайнер карточек маркетплейсов"/></div>
+                  <div class="card-marker">
+                    <div class="card-marker-icon gradient-border black"><img loading="lazy" src="./assets/images/unlock-icon.svg" alt="Бесплатный курс"/></div>
+                    <div class="card-marker-text">Бесплатный курс</div>
+                  </div>
+                  <div class="course-card__name">Дизайнер карточек маркетплейсов</div>
+                  <div class="course-card__tags"><span class="course-card__tag">Индивидуальная обратная связь</span><br/><span class="course-card__tag">Сертификат</span><span class="course-card__tag">3 работы в портфолио</span>
+                  </div><a class="course-card__desktop-link" href="">
+                    <div class="green-arrow course-card__link"><img loading="lazy" src="./assets/images/green-arrow.svg" alt=""/></div></a><a class="course-card__mobile-link" href="#">
+                    <div class="side-media row gradient-border">
+                      <div class="side-media__text">Подробнее</div>
+                      <div class="side-media__svg gradient-border">
+                        <svg width="16" height="16" viewBox="0 0 24 24">
+                          <use href="#arrow-diagonal-16"></use>
+                        </svg>
+                      </div>
+                    </div></a>
+                </div>
+                <div class="course-card start-with-the-basics__card swiper-slide">
+                  <div class="course-card__image"><img loading="lazy" src="./assets/images/02/3e6dd87e633377c092b5619ced2f272e6ea14774.webp" alt="Дизайнер карточек маркетплейсов"/></div>
+                  <div class="card-marker">
+                    <div class="card-marker-icon gradient-border black"><img loading="lazy" src="./assets/images/unlock-icon.svg" alt="Бесплатный курс"/></div>
+                    <div class="card-marker-text">Бесплатный курс</div>
+                  </div>
+                  <div class="course-card__name">Дизайнер карточек маркетплейсов</div>
+                  <div class="course-card__tags"><span class="course-card__tag">Индивидуальная обратная связь</span><br/><span class="course-card__tag">Сертификат</span><span class="course-card__tag">3 работы в портфолио</span>
+                  </div><a class="course-card__desktop-link" href="">
+                    <div class="green-arrow course-card__link"><img loading="lazy" src="./assets/images/green-arrow.svg" alt=""/></div></a><a class="course-card__mobile-link" href="#">
+                    <div class="side-media row gradient-border">
+                      <div class="side-media__text">Подробнее</div>
+                      <div class="side-media__svg gradient-border">
+                        <svg width="16" height="16" viewBox="0 0 24 24">
+                          <use href="#arrow-diagonal-16"></use>
+                        </svg>
+                      </div>
+                    </div></a>
+                </div>
+                <div class="course-card start-with-the-basics__card swiper-slide">
+                  <div class="course-card__image"><img loading="lazy" src="./assets/images/02/877202577bf322bb5ed42c3c82940101b43f12ed.webp" alt="Web-дизайн с нуля"/></div>
+                  <div class="card-marker">
+                    <div class="card-marker-icon gradient-border black"><img loading="lazy" src="./assets/images/unlock-icon.svg" alt="Бесплатный курс"/></div>
+                    <div class="card-marker-text">Бесплатный курс</div>
+                  </div>
+                  <div class="course-card__name">Web-дизайн с нуля</div>
+                  <div class="course-card__tags"><span class="course-card__tag">Индивидуальная обратная связь</span><br/><span class="course-card__tag">Сертификат</span><span class="course-card__tag">3 работы в портфолио</span>
+                  </div><a class="course-card__desktop-link" href="">
+                    <div class="green-arrow course-card__link"><img loading="lazy" src="./assets/images/green-arrow.svg" alt=""/></div></a><a class="course-card__mobile-link" href="#">
+                    <div class="side-media row gradient-border">
+                      <div class="side-media__text">Подробнее</div>
+                      <div class="side-media__svg gradient-border">
+                        <svg width="16" height="16" viewBox="0 0 24 24">
+                          <use href="#arrow-diagonal-16"></use>
+                        </svg>
+                      </div>
+                    </div></a>
+                </div>
+                <div class="course-card start-with-the-basics__card swiper-slide">
+                  <div class="course-card__image"><img loading="lazy" src="./assets/images/02/6a75e9a752846c8e3e21f0fa541cb12a257e1e97.webp" alt="Старт в 3D-визуализации"/></div>
+                  <div class="card-marker">
+                    <div class="card-marker-icon gradient-border black"><img loading="lazy" src="./assets/images/unlock-icon.svg" alt="Бесплатный курс"/></div>
+                    <div class="card-marker-text">Бесплатный курс</div>
+                  </div>
+                  <div class="course-card__name">Старт в 3D-визуализации</div>
+                  <div class="course-card__tags"><span class="course-card__tag">Индивидуальная обратная связь</span><br/><span class="course-card__tag">Сертификат</span><span class="course-card__tag">3 работы в портфолио</span>
+                  </div><a class="course-card__desktop-link" href="">
+                    <div class="green-arrow course-card__link"><img loading="lazy" src="./assets/images/green-arrow.svg" alt=""/></div></a><a class="course-card__mobile-link" href="#">
+                    <div class="side-media row gradient-border">
+                      <div class="side-media__text">Подробнее</div>
+                      <div class="side-media__svg gradient-border">
+                        <svg width="16" height="16" viewBox="0 0 24 24">
+                          <use href="#arrow-diagonal-16"></use>
+                        </svg>
+                      </div>
+                    </div></a>
+                </div>
+              </div>
+              <div class="swiper-pagination gradient-border"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -431,7 +581,6 @@
               <div class="payment-after__title from-scratch-to-pro__card-title"><span class="wave-text">Отсрочка 3 месяца</span><b>  <br/>
                   <div class="wave-text">для первого платежа</div></b></div>
               <div class="payment-after__discription from-scratch-to-pro__card-discription">Действует для всех флагманских программ с карьерной поддержкой</div>
-              <div class="fon"> <img loading="lazy" src="./assets/images/02/Cards.webp" alt=""/></div>
             </div>
           </div>
           <div class="from-scratch-to-pro__card-section">
@@ -529,6 +678,68 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="mobile-slider from-scratch-to-pro__mobile-slider container"> 
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="from-scratch-to-pro__slide swiper-slide">
+            <div class="from-scratch-to-pro__card gradient-border training-to-day">
+              <div class="training-to-day__images from-scratch-to-pro__card-images">
+                <div class="training-to-day__blander"><img loading="lazy" src="./assets/images/02/blender.svg" alt="blender"/></div>
+                <div class="training-to-day__ozon"><img loading="lazy" src="./assets/images/02/ozon.svg" alt="ozon"/></div>
+                <div class="training-to-day__wb"><img loading="lazy" src="./assets/images/02/wb.svg" alt="wb"/></div>
+                <div class="training-to-day__figma"><img loading="lazy" src="./assets/images/02/figma.svg" alt="figma"/></div>
+              </div>
+              <div class="card-marker">
+                <div class="card-marker-icon gradient-border white"><img loading="lazy" src="./assets/images/study.svg" alt="Обучение сегодня"/></div>
+                <div class="card-marker-text">Обучение сегодня</div>
+              </div>
+              <div class="training-to-day__title from-scratch-to-pro__card-title wave-text">Начните с бесплатных базовых курсов сейчас</div>
+              <div class="training-to-day__discription from-scratch-to-pro__card-discription wave-text">Чтобы понять, в каком направлении двигаться</div>
+              <div class="card-marker">
+                <div class="card-marker-icon gradient-border white"><img loading="lazy" src="./assets/images/payment.svg" alt="Оплата позже"/></div>
+                <div class="card-marker-text">Оплата позже</div>
+              </div>
+              <div class="payment-after__title from-scratch-to-pro__card-title"><span class="wave-text">Отсрочка 3 месяца</span><b>  <br/>
+                  <div class="wave-text">для первого платежа</div></b></div>
+              <div class="payment-after__discription from-scratch-to-pro__card-discription">Действует для всех флагманских программ с карьерной поддержкой</div>
+            </div>
+          </div>
+          <div class="from-scratch-to-pro__slide swiper-slide">
+            <div class="from-scratch-to-pro__card gradient-border training-to-day">
+              <div class="card-marker">
+                <div class="card-marker-icon gradient-border white"><img loading="lazy" src="./assets/images/study.svg" alt="Обучение сегодня"/></div>
+                <div class="card-marker-text">Обучение сегодня</div>
+              </div>
+              <div class="training-to-day__title from-scratch-to-pro__card-title wave-text">Начните с бесплатных базовых курсов сейчас</div>
+              <div class="training-to-day__discription from-scratch-to-pro__card-discription wave-text">Чтобы понять, в каком направлении двигаться</div>
+              <div class="training-to-day__images from-scratch-to-pro__card-images">
+                <div class="training-to-day__blander"><img loading="lazy" src="./assets/images/02/blender.svg" alt="blender"/></div>
+                <div class="training-to-day__ozon"><img loading="lazy" src="./assets/images/02/ozon.svg" alt="ozon"/></div>
+                <div class="training-to-day__wb"><img loading="lazy" src="./assets/images/02/wb.svg" alt="wb"/></div>
+                <div class="training-to-day__figma"><img loading="lazy" src="./assets/images/02/figma.svg" alt="figma"/></div>
+              </div>
+            </div>
+          </div>
+          <div class="from-scratch-to-pro__slide swiper-slide">
+            <div class="from-scratch-to-pro__card gradient-border training-to-day">
+              <div class="card-marker">
+                <div class="card-marker-icon gradient-border white"><img loading="lazy" src="./assets/images/study.svg" alt="Обучение сегодня"/></div>
+                <div class="card-marker-text">Обучение сегодня</div>
+              </div>
+              <div class="training-to-day__title from-scratch-to-pro__card-title wave-text">Начните с бесплатных базовых курсов сейчас</div>
+              <div class="training-to-day__discription from-scratch-to-pro__card-discription wave-text">Чтобы понять, в каком направлении двигаться</div>
+              <div class="training-to-day__images from-scratch-to-pro__card-images">
+                <div class="training-to-day__blander"><img loading="lazy" src="./assets/images/02/blender.svg" alt="blender"/></div>
+                <div class="training-to-day__ozon"><img loading="lazy" src="./assets/images/02/ozon.svg" alt="ozon"/></div>
+                <div class="training-to-day__wb"><img loading="lazy" src="./assets/images/02/wb.svg" alt="wb"/></div>
+                <div class="training-to-day__figma"><img loading="lazy" src="./assets/images/02/figma.svg" alt="figma"/></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination gradient-border"></div>
       </div>
     </div>
   </section>
@@ -791,6 +1002,11 @@
                 <div class="student-results-card__name">Леонид Нечаев</div>
                 <div class="student-results-card__experience">1,5 года опыта</div>
               </div>
+              <button class="student-results-card__cta gradient-border">
+                <svg width="20" height="20" viewBox="0 0 24 24">
+                  <use href="#plus-20"></use>
+                </svg>
+              </button>
             </div>
             <div class="student-results-card column student-results__card"> 
               <div class="student-results-card__image">
@@ -803,95 +1019,11 @@
                 <div class="student-results-card__name">Леонид Нечаев</div>
                 <div class="student-results-card__experience">1,5 года опыта</div>
               </div>
-            </div>
-        <div class="student-results__card"></div>
-        <div class="student-results__card"></div>
-            <div class="student-results-card column student-results__card"> 
-              <div class="student-results-card__image">
-                <div class="wrapper gradient-border">
-                  <div class="image-wrapper gradient-border"><img loading="lazy" src="./assets/images/lamba.jpg" alt="Леонид Нечаев"/></div>
-                </div>
-              </div>
-              <div class="student-results-card__content column gradient-border">
-                <div class="student-results-card__quote">На колледже понимал, что работать по профессии не буду. Начал пробовать UX/UI-дизайн и концу курса заработал 300к</div>
-                <div class="student-results-card__name">Леонид Нечаев</div>
-                <div class="student-results-card__experience">1,5 года опыта</div>
-              </div>
-            </div>
-        <div class="student-results__card"></div>
-            <div class="student-results-card column student-results__card"> 
-              <div class="student-results-card__image">
-                <div class="wrapper gradient-border">
-                  <div class="image-wrapper gradient-border"><img loading="lazy" src="./assets/images/lamba.jpg" alt="Леонид Нечаев"/></div>
-                </div>
-              </div>
-              <div class="student-results-card__content column gradient-border">
-                <div class="student-results-card__quote">На колледже понимал, что работать по профессии не буду. Начал пробовать UX/UI-дизайн и концу курса заработал 300к</div>
-                <div class="student-results-card__name">Леонид Нечаев</div>
-                <div class="student-results-card__experience">1,5 года опыта</div>
-              </div>
-            </div>
-        <div class="student-results__card"></div>
-            <div class="student-results-card column student-results__card"> 
-              <div class="student-results-card__image">
-                <div class="wrapper gradient-border">
-                  <div class="image-wrapper gradient-border"><img loading="lazy" src="./assets/images/lamba.jpg" alt="Леонид Нечаев"/></div>
-                </div>
-              </div>
-              <div class="student-results-card__content column gradient-border">
-                <div class="student-results-card__quote">На колледже понимал, что работать по профессии не буду. Начал пробовать UX/UI-дизайн и концу курса заработал 300к</div>
-                <div class="student-results-card__name">Леонид Нечаев</div>
-                <div class="student-results-card__experience">1,5 года опыта</div>
-              </div>
-            </div>
-            <div class="student-results-card column student-results__card"> 
-              <div class="student-results-card__image">
-                <div class="wrapper gradient-border">
-                  <div class="image-wrapper gradient-border"><img loading="lazy" src="./assets/images/lamba.jpg" alt="Леонид Нечаев"/></div>
-                </div>
-              </div>
-              <div class="student-results-card__content column gradient-border">
-                <div class="student-results-card__quote">На колледже понимал, что работать по профессии не буду. Начал пробовать UX/UI-дизайн и концу курса заработал 300к</div>
-                <div class="student-results-card__name">Леонид Нечаев</div>
-                <div class="student-results-card__experience">1,5 года опыта</div>
-              </div>
-            </div>
-        <div class="student-results__card"></div>
-            <div class="student-results-card column student-results__card"> 
-              <div class="student-results-card__image">
-                <div class="wrapper gradient-border">
-                  <div class="image-wrapper gradient-border"><img loading="lazy" src="./assets/images/lamba.jpg" alt="Леонид Нечаев"/></div>
-                </div>
-              </div>
-              <div class="student-results-card__content column gradient-border">
-                <div class="student-results-card__quote">На колледже понимал, что работать по профессии не буду. Начал пробовать UX/UI-дизайн и концу курса заработал 300к</div>
-                <div class="student-results-card__name">Леонид Нечаев</div>
-                <div class="student-results-card__experience">1,5 года опыта</div>
-              </div>
-            </div>
-            <div class="student-results-card column student-results__card"> 
-              <div class="student-results-card__image">
-                <div class="wrapper gradient-border">
-                  <div class="image-wrapper gradient-border"><img loading="lazy" src="./assets/images/lamba.jpg" alt="Леонид Нечаев"/></div>
-                </div>
-              </div>
-              <div class="student-results-card__content column gradient-border">
-                <div class="student-results-card__quote">На колледже понимал, что работать по профессии не буду. Начал пробовать UX/UI-дизайн и концу курса заработал 300к</div>
-                <div class="student-results-card__name">Леонид Нечаев</div>
-                <div class="student-results-card__experience">1,5 года опыта</div>
-              </div>
-            </div>
-            <div class="student-results-card column student-results__card"> 
-              <div class="student-results-card__image">
-                <div class="wrapper gradient-border">
-                  <div class="image-wrapper gradient-border"><img loading="lazy" src="./assets/images/lamba.jpg" alt="Леонид Нечаев"/></div>
-                </div>
-              </div>
-              <div class="student-results-card__content column gradient-border">
-                <div class="student-results-card__quote">На колледже понимал, что работать по профессии не буду. Начал пробовать UX/UI-дизайн и концу курса заработал 300к</div>
-                <div class="student-results-card__name">Леонид Нечаев</div>
-                <div class="student-results-card__experience">1,5 года опыта</div>
-              </div>
+              <button class="student-results-card__cta gradient-border">
+                <svg width="20" height="20" viewBox="0 0 24 24">
+                  <use href="#plus-20"></use>
+                </svg>
+              </button>
             </div>
         <div class="student-results__card"></div>
         <div class="student-results__card"></div>
@@ -906,6 +1038,11 @@
                 <div class="student-results-card__name">Леонид Нечаев</div>
                 <div class="student-results-card__experience">1,5 года опыта</div>
               </div>
+              <button class="student-results-card__cta gradient-border">
+                <svg width="20" height="20" viewBox="0 0 24 24">
+                  <use href="#plus-20"></use>
+                </svg>
+              </button>
             </div>
         <div class="student-results__card"></div>
             <div class="student-results-card column student-results__card"> 
@@ -919,6 +1056,11 @@
                 <div class="student-results-card__name">Леонид Нечаев</div>
                 <div class="student-results-card__experience">1,5 года опыта</div>
               </div>
+              <button class="student-results-card__cta gradient-border">
+                <svg width="20" height="20" viewBox="0 0 24 24">
+                  <use href="#plus-20"></use>
+                </svg>
+              </button>
             </div>
         <div class="student-results__card"></div>
             <div class="student-results-card column student-results__card"> 
@@ -932,6 +1074,11 @@
                 <div class="student-results-card__name">Леонид Нечаев</div>
                 <div class="student-results-card__experience">1,5 года опыта</div>
               </div>
+              <button class="student-results-card__cta gradient-border">
+                <svg width="20" height="20" viewBox="0 0 24 24">
+                  <use href="#plus-20"></use>
+                </svg>
+              </button>
             </div>
             <div class="student-results-card column student-results__card"> 
               <div class="student-results-card__image">
@@ -944,6 +1091,11 @@
                 <div class="student-results-card__name">Леонид Нечаев</div>
                 <div class="student-results-card__experience">1,5 года опыта</div>
               </div>
+              <button class="student-results-card__cta gradient-border">
+                <svg width="20" height="20" viewBox="0 0 24 24">
+                  <use href="#plus-20"></use>
+                </svg>
+              </button>
             </div>
         <div class="student-results__card"></div>
             <div class="student-results-card column student-results__card"> 
@@ -957,6 +1109,135 @@
                 <div class="student-results-card__name">Леонид Нечаев</div>
                 <div class="student-results-card__experience">1,5 года опыта</div>
               </div>
+              <button class="student-results-card__cta gradient-border">
+                <svg width="20" height="20" viewBox="0 0 24 24">
+                  <use href="#plus-20"></use>
+                </svg>
+              </button>
+            </div>
+            <div class="student-results-card column student-results__card"> 
+              <div class="student-results-card__image">
+                <div class="wrapper gradient-border">
+                  <div class="image-wrapper gradient-border"><img loading="lazy" src="./assets/images/lamba.jpg" alt="Леонид Нечаев"/></div>
+                </div>
+              </div>
+              <div class="student-results-card__content column gradient-border">
+                <div class="student-results-card__quote">На колледже понимал, что работать по профессии не буду. Начал пробовать UX/UI-дизайн и концу курса заработал 300к</div>
+                <div class="student-results-card__name">Леонид Нечаев</div>
+                <div class="student-results-card__experience">1,5 года опыта</div>
+              </div>
+              <button class="student-results-card__cta gradient-border">
+                <svg width="20" height="20" viewBox="0 0 24 24">
+                  <use href="#plus-20"></use>
+                </svg>
+              </button>
+            </div>
+            <div class="student-results-card column student-results__card"> 
+              <div class="student-results-card__image">
+                <div class="wrapper gradient-border">
+                  <div class="image-wrapper gradient-border"><img loading="lazy" src="./assets/images/lamba.jpg" alt="Леонид Нечаев"/></div>
+                </div>
+              </div>
+              <div class="student-results-card__content column gradient-border">
+                <div class="student-results-card__quote">На колледже понимал, что работать по профессии не буду. Начал пробовать UX/UI-дизайн и концу курса заработал 300к</div>
+                <div class="student-results-card__name">Леонид Нечаев</div>
+                <div class="student-results-card__experience">1,5 года опыта</div>
+              </div>
+              <button class="student-results-card__cta gradient-border">
+                <svg width="20" height="20" viewBox="0 0 24 24">
+                  <use href="#plus-20"></use>
+                </svg>
+              </button>
+            </div>
+        <div class="student-results__card"></div>
+        <div class="student-results__card"></div>
+            <div class="student-results-card column student-results__card"> 
+              <div class="student-results-card__image">
+                <div class="wrapper gradient-border">
+                  <div class="image-wrapper gradient-border"><img loading="lazy" src="./assets/images/lamba.jpg" alt="Леонид Нечаев"/></div>
+                </div>
+              </div>
+              <div class="student-results-card__content column gradient-border">
+                <div class="student-results-card__quote">На колледже понимал, что работать по профессии не буду. Начал пробовать UX/UI-дизайн и концу курса заработал 300к</div>
+                <div class="student-results-card__name">Леонид Нечаев</div>
+                <div class="student-results-card__experience">1,5 года опыта</div>
+              </div>
+              <button class="student-results-card__cta gradient-border">
+                <svg width="20" height="20" viewBox="0 0 24 24">
+                  <use href="#plus-20"></use>
+                </svg>
+              </button>
+            </div>
+        <div class="student-results__card"></div>
+            <div class="student-results-card column student-results__card"> 
+              <div class="student-results-card__image">
+                <div class="wrapper gradient-border">
+                  <div class="image-wrapper gradient-border"><img loading="lazy" src="./assets/images/lamba.jpg" alt="Леонид Нечаев"/></div>
+                </div>
+              </div>
+              <div class="student-results-card__content column gradient-border">
+                <div class="student-results-card__quote">На колледже понимал, что работать по профессии не буду. Начал пробовать UX/UI-дизайн и концу курса заработал 300к</div>
+                <div class="student-results-card__name">Леонид Нечаев</div>
+                <div class="student-results-card__experience">1,5 года опыта</div>
+              </div>
+              <button class="student-results-card__cta gradient-border">
+                <svg width="20" height="20" viewBox="0 0 24 24">
+                  <use href="#plus-20"></use>
+                </svg>
+              </button>
+            </div>
+        <div class="student-results__card"></div>
+            <div class="student-results-card column student-results__card"> 
+              <div class="student-results-card__image">
+                <div class="wrapper gradient-border">
+                  <div class="image-wrapper gradient-border"><img loading="lazy" src="./assets/images/lamba.jpg" alt="Леонид Нечаев"/></div>
+                </div>
+              </div>
+              <div class="student-results-card__content column gradient-border">
+                <div class="student-results-card__quote">На колледже понимал, что работать по профессии не буду. Начал пробовать UX/UI-дизайн и концу курса заработал 300к</div>
+                <div class="student-results-card__name">Леонид Нечаев</div>
+                <div class="student-results-card__experience">1,5 года опыта</div>
+              </div>
+              <button class="student-results-card__cta gradient-border">
+                <svg width="20" height="20" viewBox="0 0 24 24">
+                  <use href="#plus-20"></use>
+                </svg>
+              </button>
+            </div>
+            <div class="student-results-card column student-results__card"> 
+              <div class="student-results-card__image">
+                <div class="wrapper gradient-border">
+                  <div class="image-wrapper gradient-border"><img loading="lazy" src="./assets/images/lamba.jpg" alt="Леонид Нечаев"/></div>
+                </div>
+              </div>
+              <div class="student-results-card__content column gradient-border">
+                <div class="student-results-card__quote">На колледже понимал, что работать по профессии не буду. Начал пробовать UX/UI-дизайн и концу курса заработал 300к</div>
+                <div class="student-results-card__name">Леонид Нечаев</div>
+                <div class="student-results-card__experience">1,5 года опыта</div>
+              </div>
+              <button class="student-results-card__cta gradient-border">
+                <svg width="20" height="20" viewBox="0 0 24 24">
+                  <use href="#plus-20"></use>
+                </svg>
+              </button>
+            </div>
+        <div class="student-results__card"></div>
+            <div class="student-results-card column student-results__card"> 
+              <div class="student-results-card__image">
+                <div class="wrapper gradient-border">
+                  <div class="image-wrapper gradient-border"><img loading="lazy" src="./assets/images/lamba.jpg" alt="Леонид Нечаев"/></div>
+                </div>
+              </div>
+              <div class="student-results-card__content column gradient-border">
+                <div class="student-results-card__quote">На колледже понимал, что работать по профессии не буду. Начал пробовать UX/UI-дизайн и концу курса заработал 300к</div>
+                <div class="student-results-card__name">Леонид Нечаев</div>
+                <div class="student-results-card__experience">1,5 года опыта</div>
+              </div>
+              <button class="student-results-card__cta gradient-border">
+                <svg width="20" height="20" viewBox="0 0 24 24">
+                  <use href="#plus-20"></use>
+                </svg>
+              </button>
             </div>
       </div>
       <div class="student-results__show-more">
@@ -964,6 +1245,81 @@
           <div class="green-arrow side-media__img"><img loading="lazy" src="./assets/images/07/Plus 20.svg" alt=""/></div>
           <div class="side-media__text">Показать ещё</div>
         </div>
+      </div>
+    </div>
+    <div class="mobile-slider student-results__mobile-slider"> 
+      <div class="swiper">
+        <div class="swiper-wrapper">
+              <div class="student-results-card column student-results__card swiper-slide"> 
+                <div class="student-results-card__image">
+                  <div class="wrapper gradient-border">
+                    <div class="image-wrapper gradient-border"><img loading="lazy" src="./assets/images/lamba.jpg" alt="Леонид Нечаев"/></div>
+                  </div>
+                </div>
+                <div class="student-results-card__content column gradient-border">
+                  <div class="student-results-card__quote">На колледже понимал, что работать по профессии не буду. Начал пробовать UX/UI-дизайн и концу курса заработал 300к</div>
+                  <div class="student-results-card__name">Леонид Нечаев</div>
+                  <div class="student-results-card__experience">1,5 года опыта</div>
+                </div>
+                <button class="student-results-card__cta gradient-border">
+                  <svg width="20" height="20" viewBox="0 0 24 24">
+                    <use href="#plus-20"></use>
+                  </svg>
+                </button>
+              </div>
+              <div class="student-results-card column student-results__card swiper-slide"> 
+                <div class="student-results-card__image">
+                  <div class="wrapper gradient-border">
+                    <div class="image-wrapper gradient-border"><img loading="lazy" src="./assets/images/lamba.jpg" alt="Леонид Нечаев"/></div>
+                  </div>
+                </div>
+                <div class="student-results-card__content column gradient-border">
+                  <div class="student-results-card__quote">На колледже понимал, что работать по профессии не буду. Начал пробовать UX/UI-дизайн и концу курса заработал 300к</div>
+                  <div class="student-results-card__name">Леонид Нечаев</div>
+                  <div class="student-results-card__experience">1,5 года опыта</div>
+                </div>
+                <button class="student-results-card__cta gradient-border">
+                  <svg width="20" height="20" viewBox="0 0 24 24">
+                    <use href="#plus-20"></use>
+                  </svg>
+                </button>
+              </div>
+              <div class="student-results-card column student-results__card swiper-slide"> 
+                <div class="student-results-card__image">
+                  <div class="wrapper gradient-border">
+                    <div class="image-wrapper gradient-border"><img loading="lazy" src="./assets/images/lamba.jpg" alt="Леонид Нечаев"/></div>
+                  </div>
+                </div>
+                <div class="student-results-card__content column gradient-border">
+                  <div class="student-results-card__quote">На колледже понимал, что работать по профессии не буду. Начал пробовать UX/UI-дизайн и концу курса заработал 300к</div>
+                  <div class="student-results-card__name">Леонид Нечаев</div>
+                  <div class="student-results-card__experience">1,5 года опыта</div>
+                </div>
+                <button class="student-results-card__cta gradient-border">
+                  <svg width="20" height="20" viewBox="0 0 24 24">
+                    <use href="#plus-20"></use>
+                  </svg>
+                </button>
+              </div>
+              <div class="student-results-card column student-results__card swiper-slide"> 
+                <div class="student-results-card__image">
+                  <div class="wrapper gradient-border">
+                    <div class="image-wrapper gradient-border"><img loading="lazy" src="./assets/images/lamba.jpg" alt="Леонид Нечаев"/></div>
+                  </div>
+                </div>
+                <div class="student-results-card__content column gradient-border">
+                  <div class="student-results-card__quote">На колледже понимал, что работать по профессии не буду. Начал пробовать UX/UI-дизайн и концу курса заработал 300к</div>
+                  <div class="student-results-card__name">Леонид Нечаев</div>
+                  <div class="student-results-card__experience">1,5 года опыта</div>
+                </div>
+                <button class="student-results-card__cta gradient-border">
+                  <svg width="20" height="20" viewBox="0 0 24 24">
+                    <use href="#plus-20"></use>
+                  </svg>
+                </button>
+              </div>
+        </div>
+        <div class="swiper-pagination gradient-border"></div>
       </div>
     </div>
   </section>
@@ -3405,9 +3761,88 @@
       <div class="image__container"><img loading="lazy" src="./assets/images/07/Group 2087327081.webp" alt="#"/></div>
     </div>
   </section>
-  <section class="according-to-Yandex-Wordstat"></section>
-  <section class="designers-are-widely-in-demand"></section>
-  <section class="help-with-vacancies"></section>
+  <section class="according-to-Yandex-Wordstat null"></section>
+  <section class="designers-are-widely-in-demand null"></section>
+  <section class="help-with-vacancies column">
+    <div class="section-name help-with-vacancies__name">
+      <div class="section-name__index">10</div>
+      <div class="section-name__text-wrapper">
+        <div class="section-name__text">Помогаем с вакансиями</div>
+      </div>
+    </div>
+    <div class="section-title help-with-vacancies__title">Мы активно работаем над улучшением ситуации на рынке дизайна, закрывая все эти потребности</div>
+    <div class="help-with-vacancies__content row">
+      <div class="help-with-vacancies__card employment-opportunities row">
+        <div class="employment-opportunities__text column">
+          <div class="card-marker">
+            <div class="card-marker-icon gradient-border">
+              <svg width="20" height="20" viewBox="0 0 24 24">
+                <use href="#plus-20"></use>
+              </svg>
+            </div>
+            <div class="card-marker-text">Трудоустройство</div>
+          </div>
+          <div class="employment-opportunities__count">20</div>
+          <div class="employment-opportunities__sub-count">проектов в день</div>
+          <div class="employment-opportunities__disk">Мы публикуем нашим студентам и гарантируем индивидуальную поддержку в трудоустройстве</div>
+        </div>
+        <div class="employment-opportunities__image"><img src="./assets/images/10/Frame 2147224423.png" alt=""/></div>
+      </div>
+      <div class="help-with-vacancies__card join column">
+        <div class="card-marker">
+          <div class="card-marker-icon gradient-border">
+            <svg width="20" height="20" viewBox="0 0 24 24">
+              <use href="#plus-20"></use>
+            </svg>
+          </div>
+          <div class="card-marker-text">Присоединяйся</div>
+        </div>
+        <div class="join__title">Ты сможешь повторить их успех</div>
+        <div class="join__cards">
+          <div class="join__card row join-card gradient-border">
+            <div class="join-card__index gradient-border">1</div>
+            <div class="join-card__image"> <img src="./assets/images/10/Frame 2147224268.png" alt=""/></div>
+            <div class="join-card__text column gradient-border">
+              <div class="join-card__name">Имя Фамилия</div>
+              <div class="join-card__experience">6 мес в дизайне</div>
+            </div>
+            <div class="join-card__price">360 000 ₽</div>
+          </div>
+          <div class="join__card row join-card">
+            <div class="join-card__index gradient-border">1</div>
+            <div class="join-card__image"> <img src="./assets/images/10/Frame 2147224268.png" alt=""/></div>
+            <div class="join-card__text column gradient-border">
+              <div class="join-card__name">Имя Фамилия</div>
+              <div class="join-card__experience">6 мес в дизайне</div>
+            </div>
+            <div class="join-card__price">360 000 ₽</div>
+          </div>
+          <div class="join__card row join-card">
+            <div class="join-card__index gradient-border">1</div>
+            <div class="join-card__image"> <img src="./assets/images/10/Frame 2147224268.png" alt=""/></div>
+            <div class="join-card__text column gradient-border">
+              <div class="join-card__name">Имя Фамилия</div>
+              <div class="join-card__experience">6 мес в дизайне</div>
+            </div>
+            <div class="join-card__price">360 000 ₽</div>
+          </div>
+          <div class="join__card row join-card">
+            <div class="join-card__index gradient-border">1</div>
+            <div class="join-card__image"> <img src="./assets/images/10/Frame 2147224268.png" alt=""/></div>
+            <div class="join-card__text column gradient-border">
+              <div class="join-card__name">Имя Фамилия</div>
+              <div class="join-card__experience">6 мес в дизайне</div>
+            </div>
+            <div class="join-card__price">360 000 ₽</div>
+          </div>
+        </div>
+        <div class="side-media row gradient-border join__cta">
+          <div class="green-arrow side-media__img"><img loading="lazy" src="./assets/images/green-arrow.svg" alt=""/></div>
+          <div class="side-media__text">Выбрать программу</div>
+        </div>
+      </div>
+    </div>
+  </section>
   <section class="faq column container">
     <div class="faq-container">
       <div class="faq__content"></div>
@@ -3424,32 +3859,67 @@
       </div>
       <div class="faq__questions questions column">
             <div class="questions__question question gradient-border">
-              <p class="question__content">Сколько нужно учиться на дизайнера?</p>
-              <div class="green-arrow"><img loading="lazy" src="./assets/images/11/plus.svg" alt=""/></div>
+              <div class="question__header">
+                <p class="question__content">Сколько нужно учиться на дизайнера?</p>
+                <div class="green-arrow faq__open"><img loading="lazy" src="./assets/images/11/plus.svg" alt=""/></div>
+              </div>
+              <div class="question__details" style="height:0">
+                <p>Чтобы начать работать дизайнером достаточно 2-3 месяцев обучения. При условии прохождения программы до конца наши студенты получают диплом установленного государством образца, подтверждающий знания, и портфолио, что подтвердит скиллы. Более 89% наших студентов трудоустраиваются по профессии или успешно выходят на фриланс сразу после обучения.</p>
+              </div>
             </div>
             <div class="questions__question question gradient-border">
-              <p class="question__content">Как понять каким дизайнером становиться?</p>
-              <div class="green-arrow"><img loading="lazy" src="./assets/images/11/plus.svg" alt=""/></div>
+              <div class="question__header">
+                <p class="question__content">Как понять каким дизайнером становиться?</p>
+                <div class="green-arrow faq__open"><img loading="lazy" src="./assets/images/11/plus.svg" alt=""/></div>
+              </div>
+              <div class="question__details" style="height:0">
+                <p>any text</p>
+              </div>
             </div>
             <div class="questions__question question gradient-border">
-              <p class="question__content">Сколько времени в неделю нужно на обучение?</p>
-              <div class="green-arrow"><img loading="lazy" src="./assets/images/11/plus.svg" alt=""/></div>
+              <div class="question__header">
+                <p class="question__content">Сколько времени в неделю нужно на обучение?</p>
+                <div class="green-arrow faq__open"><img loading="lazy" src="./assets/images/11/plus.svg" alt=""/></div>
+              </div>
+              <div class="question__details" style="height:0">
+                <p>any text</p>
+              </div>
             </div>
             <div class="questions__question question gradient-border">
-              <p class="question__content">Я получу практический опыт на обучении?</p>
-              <div class="green-arrow"><img loading="lazy" src="./assets/images/11/plus.svg" alt=""/></div>
+              <div class="question__header">
+                <p class="question__content">Я получу практический опыт на обучении?</p>
+                <div class="green-arrow faq__open"><img loading="lazy" src="./assets/images/11/plus.svg" alt=""/></div>
+              </div>
+              <div class="question__details" style="height:0">
+                <p>any text</p>
+              </div>
             </div>
             <div class="questions__question question gradient-border">
-              <p class="question__content">Получится ли устроиться на работу после прохождения программы?</p>
-              <div class="green-arrow"><img loading="lazy" src="./assets/images/11/plus.svg" alt=""/></div>
+              <div class="question__header">
+                <p class="question__content">Получится ли устроиться на работу после прохождения программы?</p>
+                <div class="green-arrow faq__open"><img loading="lazy" src="./assets/images/11/plus.svg" alt=""/></div>
+              </div>
+              <div class="question__details" style="height:0">
+                <p>any text</p>
+              </div>
             </div>
             <div class="questions__question question gradient-border">
-              <p class="question__content">Я смогу изучать материалы курса после обучения?</p>
-              <div class="green-arrow"><img loading="lazy" src="./assets/images/11/plus.svg" alt=""/></div>
+              <div class="question__header">
+                <p class="question__content">Я смогу изучать материалы курса после обучения?</p>
+                <div class="green-arrow faq__open"><img loading="lazy" src="./assets/images/11/plus.svg" alt=""/></div>
+              </div>
+              <div class="question__details" style="height:0">
+                <p>any text</p>
+              </div>
             </div>
             <div class="questions__question question gradient-border">
-              <p class="question__content">Как я смогу подтвердить свое образование?</p>
-              <div class="green-arrow"><img loading="lazy" src="./assets/images/11/plus.svg" alt=""/></div>
+              <div class="question__header">
+                <p class="question__content">Как я смогу подтвердить свое образование?</p>
+                <div class="green-arrow faq__open"><img loading="lazy" src="./assets/images/11/plus.svg" alt=""/></div>
+              </div>
+              <div class="question__details" style="height:0">
+                <p>any text</p>
+              </div>
             </div>
       </div>
       <div class="faq__separator separator"></div>
@@ -3558,6 +4028,7 @@
     </div></a>
 </section>
 <div class="background-blur" id="background-blur"></div>
+    
 
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
     <script>
@@ -3575,7 +4046,8 @@
         lenis.raf(time);
         requestAnimationFrame(raf);
       }
-     requestAnimationFrame(raf);
+      requestAnimationFrame(raf);
     </script>
+    <!-- <script type="module" src="/@vite-plugin-svg-sprite/inline"></script> -->
   </body>
 </html>

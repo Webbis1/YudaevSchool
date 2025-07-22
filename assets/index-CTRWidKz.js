@@ -11979,6 +11979,56 @@ function EffectFlip(_ref) {
     })
   });
 }
+class QuestionToggler {
+  questions;
+  constructor() {
+    this.questions = Array.from(
+      document.querySelectorAll(".questions__question")
+    );
+    this.initEvents();
+  }
+  initEvents() {
+    this.questions.forEach((question) => {
+      const header = question.querySelector(".question__header");
+      const details = question.querySelector(
+        ".question__details"
+      );
+      const arrow = question.querySelector(".faq__open");
+      header?.addEventListener("click", () => {
+        const isActive = question.classList.contains("question--active");
+        if (isActive) {
+          gsapWithCSS.to(details, {
+            height: 0,
+            duration: 0.3,
+            ease: "power1.out",
+            onComplete: () => {
+              question.classList.remove("question--active");
+            }
+          });
+          gsapWithCSS.to(arrow, {
+            rotation: 0,
+            duration: 0.3
+          });
+        } else {
+          question.classList.add("question--active");
+          gsapWithCSS.fromTo(
+            details,
+            { height: 0 },
+            {
+              height: "auto",
+              duration: 0.3,
+              ease: "power1.out"
+            }
+          );
+          gsapWithCSS.to(arrow, {
+            rotation: 45,
+            duration: 0.3
+          });
+        }
+      });
+    });
+  }
+}
 gsapWithCSS.registerPlugin(ScrollTrigger);
 ScrollTrigger.config({
   autoRefreshEvents: "visibilitychange,DOMContentLoaded,load"
@@ -12507,19 +12557,6 @@ const initStudentResults = () => {
     }
   });
 };
-document.addEventListener("DOMContentLoaded", () => {
-  initIntersectionObservers();
-  initRectangleAnimation();
-  initSpiralAnimations();
-  initCircleModule();
-  initBurgerMenu();
-  initHeaderScroll();
-  initHeroSlider();
-  initImageBlurEffect();
-  initStudentResults();
-  new Tabs();
-  new CasesSlider();
-});
 const initMobileCoursesNavigation = () => {
   console.log("Функция initMobileCoursesNavigation вызвана");
   console.log("Поиск элементов...");
@@ -12603,7 +12640,6 @@ const initMobileCoursesNavigation = () => {
   });
   console.log("Инициализация завершена успешно");
 };
-console.log("Запуск инициализации мобильной навигации...");
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM полностью загружен");
   initMobileCoursesNavigation();
@@ -12740,7 +12776,12 @@ function calculateOffset() {
 }
 function animateCircles(tl) {
   const circleAnim = (id) => {
-    return gsapWithCSS.timeline().to(id, { strokeDashoffset: 0, duration: 0.25, ease: "none", force3D: false });
+    return gsapWithCSS.timeline().to(id, {
+      strokeDashoffset: 0,
+      duration: 0.25,
+      ease: "none",
+      force3D: false
+    });
   };
   tl.add(circleAnim("#circle-1"), "<0.25").add(circleAnim("#circle-2"), ">").add(circleAnim("#circle-3"), ">");
 }
@@ -12761,4 +12802,70 @@ function animateProgressBars(tl, progressBars, barLengths, totalDuration) {
     );
   });
 }
-//# sourceMappingURL=index-9WnwddLG.js.map
+document.querySelectorAll(".mobile-slider").forEach((sliderContainer, index) => {
+  console.log(`[Slider ${index}] Начинаем инициализацию`);
+  const swiperEl = sliderContainer.querySelector(
+    ".swiper"
+  );
+  const paginationEl = sliderContainer.querySelector(
+    ".swiper-pagination"
+  );
+  console.log(`[Slider ${index}] Элемент .swiper найден?`, !!swiperEl);
+  console.log(
+    `[Slider ${index}] Элемент .swiper-pagination найден?`,
+    !!paginationEl
+  );
+  if (!swiperEl) {
+    console.warn(`[Slider ${index}] Не найден элемент .swiper`);
+    return;
+  }
+  if (!paginationEl) {
+    console.warn(`[Slider ${index}] Не найден элемент .swiper-pagination`);
+    return;
+  }
+  console.log(
+    `[Slider ${index}] Инициализируем Swiper с элементом:`,
+    swiperEl
+  );
+  try {
+    new Swiper(swiperEl, {
+      modules: [Pagination, Autoplay, EffectFade, EffectFlip, EffectCube],
+      slidesPerView: 1,
+      spaceBetween: 16,
+      loop: false,
+      autoHeight: false,
+      pagination: {
+        el: paginationEl,
+        bulletElement: "span",
+        clickable: true
+      }
+    });
+    console.log(`[Slider ${index}] Swiper успешно инициализирован`);
+  } catch (error) {
+    console.error(
+      `[Slider ${index}] Ошибка при инициализации Swiper:`,
+      error
+    );
+  }
+});
+document.addEventListener("DOMContentLoaded", () => {
+  initIntersectionObservers();
+  function checkAndInitAnimation() {
+    if (window.innerWidth > 700) {
+      initRectangleAnimation();
+      initSpiralAnimations();
+    }
+  }
+  checkAndInitAnimation();
+  window.addEventListener("resize", checkAndInitAnimation);
+  initCircleModule();
+  initBurgerMenu();
+  initHeaderScroll();
+  initHeroSlider();
+  initImageBlurEffect();
+  initStudentResults();
+  new Tabs();
+  new CasesSlider();
+  new QuestionToggler();
+});
+//# sourceMappingURL=index-CTRWidKz.js.map
