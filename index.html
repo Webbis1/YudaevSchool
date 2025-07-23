@@ -26,8 +26,8 @@
     <meta property="og:title" content="Yudaev School" />
     <meta property="og:description" content="made by Webbis" />
     <meta property="og:image" content="favicon.ico" />
-    <script type="module" crossorigin src="./assets/index-DVQrtQ8z.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index.Cl93WtUM.css">
+    <script type="module" crossorigin src="./assets/index-y6ykn1sN.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index.DbUc5MGk.css">
   </head>
   <body>
     <!-- index.html -->
@@ -633,9 +633,13 @@
           <div class="from-scratch-to-pro__card-section">
             <div class="from-scratch-to-pro__card gradient-border payment-after career-center-left">
               <div class="payment-after__image from-scratch-to-pro__card-images career-center-left__image"><img class="background" loading="lazy" src="./assets/images/02/Group 2087327115.webp" alt=""/></div>
-              <div class="card-marker">
-                <div class="card-marker-icon gradient-border white"><img loading="lazy" src="./assets/images/02/Vector (19).svg" alt="Окружение"/></div>
-                <div class="card-marker-text">Окружение</div>
+              <div class="card-name gradient-border">
+                <div class="circle-icon circle-name__icon">
+                  <svg class="gradient-border" width="12" height="12">
+                    <use href="#community-12"></use>
+                  </svg>
+                </div>
+                <div class="card-name__text">Окружение</div>
               </div>
               <div class="payment-after__title from-scratch-to-pro__card-title">
                 <h3 class="from-scratch-to-pro__card-title">Дизайн-тусовка</h3>
@@ -644,9 +648,13 @@
                 Мы собрали комьюнити новичкови профи, чтобы обмениваться опытом, вдохновлять, находить полезные связи и поддерживать тёплую атмосферу</div>
             </div>
             <div class="from-scratch-to-pro__card gradient-border training-to-day career-center-right work-check">
-              <div class="card-marker">
-                <div class="card-marker-icon gradient-border white"><img loading="lazy" src="./assets/images/02/Vector (19).svg" alt="Проверки работ"/></div>
-                <div class="card-marker-text">Проверки работ</div>
+              <div class="card-name gradient-border">
+                <div class="circle-icon circle-name__icon">
+                  <svg class="gradient-border" width="12" height="12">
+                    <use href="#review-12"></use>
+                  </svg>
+                </div>
+                <div class="card-name__text">Проверки работ</div>
               </div>
               <div class="training-to-day__title from-scratch-to-pro__card-title wave-text">Персональная обратная связь</div>
               <div class="training-to-day__discription from-scratch-to-pro__card-discription wave-text">Каждое задание проверяется наставником в течение 24 часов. <br/>Даже на бесплатных курсах</div>
@@ -662,14 +670,18 @@
           </div>
           <div class="from-scratch-to-pro__card-section">
             <div class="from-scratch-to-pro__card_big gradient-border column special-offer">
-              <div class="card-marker">
-                <div class="card-marker-icon gradient-border white"><img loading="lazy" src="./assets/images/02/Vector (19).svg" alt="Спец. предложение"/></div>
-                <div class="card-marker-text">Спец. предложение</div>
+              <div class="card-name gradient-border">
+                <div class="circle-icon circle-name__icon">
+                  <svg class="gradient-border" width="12" height="12">
+                    <use href="#percent-12"></use>
+                  </svg>
+                </div>
+                <div class="card-name__text">Спец. предложение</div>
               </div>
               <div class="special-offer__title">Получите скидку <br/>-15% только сегодня</div>
               <button class="special-offer__spa">
                 <div class="side-media row gradient-border" style="flex-direction: row-reverse;">
-                  <div class="green-arrow side-media__img"><img loading="lazy" src="public/assets/images/02/Vector (20).svg" alt=""/></div>
+                  <div class="green-arrow side-media__img"><img loading="lazy" src="./assets/images/02/Vector (20).svg" alt=""/></div>
                   <div class="side-media__text">Забрать скидку</div>
                 </div>
               </button>
@@ -4246,14 +4258,14 @@
   </section>
   <section class="questions-block container column">
     <div class="questions-block__title-section">
-      <div class="section-name gradient-border">
+      <div class="section-name">
         <div class="faq__number section-name__index">12</div>
-        <div class="section-name__text-wrapper gradient-border">
+        <div class="section-name__text-wrapper">
           <div class="section-name__text">Остались вопросы?</div>
         </div>
       </div>
     </div>
-    <div class="questions-block__content null">
+    <div class="questions-block__content">
       <div class="questions-container">
         <div class="question-subtitle-container">
           <div class="questions-block__subtitle">
@@ -4261,15 +4273,29 @@
           </div>
           <div class="question__info">
             <p>Наша поддержка проконсультирует вас по любому вопросу</p>
-            <form class="question-block__form" action="">
-              <input class="question-block__input" type="text" placeholder="Имя"/>
-              <input class="question-block__input" type="number"/>
-              <input class="question-block__input" type="email" placeholder="Почта"/>
-              <button class="question-block__form-button">
-                <p>Оставить заявку</p>
-              </button>
-            </form>
           </div>
+          <form class="question-block__form" action="">
+            <input class="question-block__input gradient-border" type="text" placeholder="Имя"/>
+            <div class="question-block__input phone-input">
+              <div class="phone-input__phone-code">
+                <select>
+                  <option value="+375">+375</option>
+                  <option value="+7">+7</option>
+                  <option value="+380">+380</option>
+                </select>
+              </div>
+              <input class="phone-input__phone-number gradient-border" type="tel" placeholder="(29) 111-11-11"/>
+            </div>
+            <input class="question-block__input last-input gradient-border" type="email" placeholder="Почта"/>
+            <button class="question-block__form-button question-button gradient-border">
+              <p>Оставить заявку</p>
+              <div class="circle-icon question-button__button-icon">
+                <svg class="gradient-border" width="12" height="12">
+                  <use href="#arrow-diagonal-16"></use>
+                </svg>
+              </div>
+            </button>
+          </form>
         </div>
       </div>
     </div>
