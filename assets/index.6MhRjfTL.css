@@ -992,7 +992,7 @@ table {
 }
 
 .special-offer {
-  background-color: #F9F9F9;
+  background-color: #f9f9f9;
   padding: 20px;
   width: 100%;
   border-radius: 20px;
@@ -1009,7 +1009,7 @@ table {
 .special-offer .side-media {
   padding: 5px;
   padding-left: 20px;
-  background-color: #FAFAFA;
+  background-color: #fafafa;
   gap: 15px;
   box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.0509803922);
 }
@@ -1032,6 +1032,47 @@ table {
   line-height: 110%;
   letter-spacing: -0.01em;
   text-transform: uppercase;
+}
+
+.second-pc-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  backdrop-filter: blur(60px);
+  box-shadow: 0 6px 35px 0 rgba(0, 0, 0, 0.05);
+  background: #f1f1f1;
+}
+.second-pc-card__image {
+  flex: 1;
+  width: 100%;
+}
+.second-pc-card__image img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+.second-pc-card__text {
+  padding: 20px;
+  padding-top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.second-pc-card__icon {
+  margin-bottom: 15px;
+}
+.second-pc-card__title {
+  font: 600 20px/1.2 "Inter", sans-serif;
+  letter-spacing: -0.02em;
+  color: rgba(0, 0, 0, 0.8);
+  margin-bottom: 5px;
+}
+.second-pc-card__disc {
+  font: 500 14px/1.3 "Inter", sans-serif;
+  letter-spacing: -0.02em;
+  color: rgba(0, 0, 0, 0.4);
 }
 
 .expandable-grid__inner {
