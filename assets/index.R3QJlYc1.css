@@ -1043,6 +1043,13 @@ table {
   box-shadow: 0 6px 35px 0 rgba(0, 0, 0, 0.05);
   background: #f1f1f1;
 }
+.second-pc-card_top .second-pc-card__text {
+  padding-bottom: 0;
+  padding-top: 20px;
+}
+.second-pc-card_top .second-pc-card__image {
+  display: flex;
+}
 .second-pc-card__image {
   flex: 1;
   width: 100%;
@@ -1056,6 +1063,7 @@ table {
 .second-pc-card__text {
   padding: 20px;
   padding-top: 0;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
