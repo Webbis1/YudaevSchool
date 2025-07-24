@@ -12794,9 +12794,15 @@ function animateProgressBars(tl, progressBars, barLengths, totalDuration) {
       progressBars[barIndex],
       {
         strokeDasharray: `${barLengths[barIndex].arcLength} ${barLengths[barIndex].circumference - barLengths[barIndex].arcLength}`,
+        strokeLinecap: "round",
+        // ← добавляем только при анимации
         duration: durations[i] * 2,
         ease: "none",
-        force3D: false
+        force3D: false,
+        // Опционально: можно добавить onStart, если хочется больше контроля
+        onStart: () => {
+          progressBars[barIndex].style.strokeLinecap = "round";
+        }
       },
       delays[i]
     );
@@ -12868,4 +12874,4 @@ document.addEventListener("DOMContentLoaded", () => {
   new CasesSlider();
   new QuestionToggler();
 });
-//# sourceMappingURL=index-9goYB8FJ.js.map
+//# sourceMappingURL=index-CI_BCPpX.js.map
