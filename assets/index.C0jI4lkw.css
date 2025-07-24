@@ -585,6 +585,9 @@ table {
   -webkit-font-smoothing: subpixel-antialiased;
 }
 
+.from-scratch-to-pro {
+  padding-block: var(--horizontal-padding);
+}
 .from-scratch-to-pro__card-section {
   display: flex;
   gap: 20px;
@@ -3271,7 +3274,9 @@ circle {
   font-weight: 500;
   font-size: 38px;
   color: black;
-  font-family: "Inter";
+  font-family: "Loos Extended", sans-serif;
+  line-height: 115%;
+  letter-spacing: -0.01em;
   margin-top: 20px;
   margin-bottom: 80px;
 }
