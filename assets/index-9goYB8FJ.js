@@ -12739,7 +12739,7 @@ function validateElements(elements) {
 }
 function setupProgressBars(bgBars, progressBars) {
   const startAngles = [0, 0, 0];
-  const endAngles = [24, 48, 28];
+  const endAngles = [30, 50, 50];
   bgBars.forEach((bar, i) => {
     const radius = parseFloat(bar.getAttribute("r"));
     const circumference = 2 * Math.PI * radius;
@@ -12794,7 +12794,7 @@ function animateProgressBars(tl, progressBars, barLengths, totalDuration) {
       progressBars[barIndex],
       {
         strokeDasharray: `${barLengths[barIndex].arcLength} ${barLengths[barIndex].circumference - barLengths[barIndex].arcLength}`,
-        duration: durations[i],
+        duration: durations[i] * 2,
         ease: "none",
         force3D: false
       },
@@ -12868,4 +12868,4 @@ document.addEventListener("DOMContentLoaded", () => {
   new CasesSlider();
   new QuestionToggler();
 });
-//# sourceMappingURL=index-9JtlLSJe.js.map
+//# sourceMappingURL=index-9goYB8FJ.js.map
