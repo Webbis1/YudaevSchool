@@ -12504,11 +12504,11 @@ const initHeroSlider = () => {
       shadowOffset: 20,
       shadowScale: 0.94
     },
-    autoplay: {
-      delay: 3e3,
-      disableOnInteraction: false,
-      waitForTransition: true
-    },
+    // autoplay: {
+    //   delay: 3000,
+    //   disableOnInteraction: false,
+    //   waitForTransition: true,
+    // },
     pagination: {
       el: ".hero__pagination",
       clickable: true,
@@ -12868,4 +12868,4 @@ document.addEventListener("DOMContentLoaded", () => {
   new CasesSlider();
   new QuestionToggler();
 });
-//# sourceMappingURL=index-y6ykn1sN.js.map
+//# sourceMappingURL=index-BodIyZhX.js.map
