@@ -2255,6 +2255,31 @@ table {
   padding-right: 8px;
   text-transform: uppercase;
 }
+.hero__read-more {
+  top: 0;
+  padding: 20px;
+  border-radius: 20px;
+  z-index: 4;
+  left: 10px;
+  width: 100%;
+  opacity: 0;
+  z-index: -1;
+  background-color: #EFEFEF;
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.0784313725);
+  font-size: 15px;
+  line-height: 135%;
+  letter-spacing: -0.02em;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+}
+.hero__read-more.gradient-border {
+  position: absolute;
+}
+.hero__read-more b {
+  color: rgba(0, 0, 0, 0.2509803922);
+  font-weight: 500;
+  display: inline;
+}
 .hero__slider {
   position: absolute;
   overflow: hidden;
@@ -2498,6 +2523,7 @@ table {
   border-radius: 20px;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.4);
+  position: relative;
   box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.0784313725);
   align-items: center;
   padding: 7px;
@@ -6640,6 +6666,13 @@ body {
   .go-to-start .side-media__text {
     font-size: 14px;
   }
+}
+
+.checkpoint {
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1019607843);
+  backdrop-filter: blur(10px);
+  border: 1.5px solid;
+  border-image-source: conic-gradient(from -18.65deg at 50% 50%, rgba(255, 255, 255, 0.2) 0deg, rgba(255, 255, 255, 0.6) 90deg, rgba(255, 255, 255, 0.2) 181.58deg, rgba(255, 255, 255, 0.6) 270deg, rgba(255, 255, 255, 0.2) 360deg);
 }/**
  * Swiper 11.2.10
  * Most modern mobile touch slider and framework with hardware accelerated transitions

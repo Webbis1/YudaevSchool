@@ -12645,22 +12645,36 @@ document.addEventListener("DOMContentLoaded", () => {
   initMobileCoursesNavigation();
 });
 const initRectangleAnimation = () => {
+  const rect = document.querySelector(".rectangle");
+  const circle1 = document.querySelector("#circle-1");
+  const circle2 = document.querySelector("#circle-2");
+  const circle3 = document.querySelector("#circle-3");
+  const progressBarr3 = document.querySelector("#progress-barr-3");
+  const progressBarr2 = document.querySelector("#progress-barr-2");
+  const progressBarr1 = document.querySelector("#progress-barr-1");
+  const progressBarr3Green = document.querySelector("#progress-barr-3-green");
+  const progressBarr2Green = document.querySelector("#progress-barr-2-green");
+  const progressBarr1Green = document.querySelector("#progress-barr-1-green");
+  if (!rect || !circle1 || !circle2 || !circle3 || !progressBarr3 || !progressBarr2 || !progressBarr1 || !progressBarr3Green || !progressBarr2Green || !progressBarr1Green) {
+    console.warn("Missing required elements");
+    return;
+  }
   const elements = {
-    rect: document.querySelector(".rectangle"),
+    rect,
     circles: [
-      document.querySelector("#circle-1"),
-      document.querySelector("#circle-2"),
-      document.querySelector("#circle-3")
+      circle1,
+      circle2,
+      circle3
     ],
     progressBarsBg: [
-      document.querySelector("#progress-barr-3"),
-      document.querySelector("#progress-barr-2"),
-      document.querySelector("#progress-barr-1")
+      progressBarr3,
+      progressBarr2,
+      progressBarr1
     ],
     progressBars: [
-      document.querySelector("#progress-barr-3-green"),
-      document.querySelector("#progress-barr-2-green"),
-      document.querySelector("#progress-barr-1-green")
+      progressBarr3Green,
+      progressBarr2Green,
+      progressBarr1Green
     ]
   };
   if (!validateElements(elements)) return;
@@ -12692,7 +12706,6 @@ const initRectangleAnimation = () => {
       ease: "none",
       duration: 1,
       transformStyle: "flat"
-      // force3D: false,
     },
     0
   );
@@ -12703,7 +12716,6 @@ const initRectangleAnimation = () => {
       transform: `translate(-50%, ${config3.offset}%)`,
       duration: 2,
       ease: "none",
-      force3D: false,
       transformStyle: "flat"
     },
     0.7
@@ -12714,7 +12726,80 @@ const initRectangleAnimation = () => {
     barLengths,
     config3.totalDuration
   );
+  positionCheckpoints();
+  ScrollTrigger.create({
+    trigger: ".from-scratch-to-pro",
+    start: "top top",
+    end: `+=${config3.rectangleTime}`,
+    scrub: true,
+    onUpdate: (self) => {
+      const progress = (self.progress - 0.7 / config3.rectangleTime) * 10;
+      const piece = 2;
+      const stage = Math.floor(progress / piece);
+      console.log(progress);
+      console.log(piece);
+      console.log(stage);
+      document.querySelectorAll(".checkpoint").forEach((cp, i) => {
+        console.log(`${i}  -  ${stage}`);
+        if (i < stage) {
+          cp.classList.add("completed");
+          gsapWithCSS.to(cp, {
+            // attr: { r: 4 },
+            fill: "#CFFF32",
+            stroke: "#CFFF32",
+            duration: 0.3
+          });
+        } else {
+          cp.classList.remove("completed");
+          gsapWithCSS.to(cp, {
+            // attr: { r: 4 },
+            fill: "#F2F2F2",
+            stroke: "#F2F2F2",
+            duration: 0.3
+          });
+        }
+      });
+    }
+  });
 };
+function extractProgressData() {
+  const bar1 = document.querySelector("#progress-barr-1");
+  const bar2 = document.querySelector("#progress-barr-2");
+  const bar3 = document.querySelector("#progress-barr-3");
+  if (!bar1 || !bar2 || !bar3) {
+    console.error("Missing progress bars");
+    return null;
+  }
+  const cx = parseFloat(bar1.getAttribute("cx"));
+  const cy = parseFloat(bar1.getAttribute("cy"));
+  const pr1 = parseFloat(bar1.getAttribute("r"));
+  const pr2 = parseFloat(bar2.getAttribute("r"));
+  const pr3 = parseFloat(bar3.getAttribute("r"));
+  const parseRotation = (el) => {
+    const transform = el.transform.baseVal.consolidate()?.matrix;
+    if (transform) {
+      const transformStr = el.getAttribute("transform") || "";
+      const match = transformStr.match(/rotate\(([^,|\s]+)[,|\s]+/);
+      return match ? parseFloat(match[1]) : 0;
+    }
+    return 0;
+  };
+  const startAngle_bar1 = parseRotation(bar1);
+  const startAngle_bar2 = parseRotation(bar2);
+  const startAngle_bar3 = parseRotation(bar3);
+  const startAngle = startAngle_bar1;
+  return {
+    centerx: cx,
+    centery: cy,
+    pr1,
+    pr2,
+    pr3,
+    startAngle,
+    startAngle_bar1,
+    startAngle_bar2,
+    startAngle_bar3
+  };
+}
 function validateElements(elements) {
   const missing = [];
   if (!elements.rect) missing.push("Rectangle element (.rectangle)");
@@ -12808,6 +12893,59 @@ function animateProgressBars(tl, progressBars, barLengths, totalDuration) {
     );
   });
 }
+function positionCheckpoints() {
+  const data = extractProgressData();
+  if (!data) return;
+  const {
+    centerx,
+    centery,
+    pr1,
+    pr2,
+    pr3,
+    startAngle_bar1,
+    startAngle_bar2,
+    startAngle_bar3
+  } = data;
+  const arc1Degrees = 50;
+  const arc2Degrees = 50;
+  const arc3Degrees = 30;
+  const checkpoints = document.querySelectorAll(".checkpoint");
+  checkpoints.forEach((cp) => {
+    const forBar = cp.getAttribute("data-for");
+    const pos = cp.getAttribute("data-pos");
+    let angle = 0;
+    let r = 0;
+    if (forBar === "bar1") {
+      r = pr1;
+      if (pos === "center") {
+        angle = startAngle_bar1 + arc1Degrees / 2;
+      } else if (pos === "end") {
+        angle = startAngle_bar1 + arc1Degrees;
+      }
+    } else if (forBar === "bar2") {
+      r = pr2;
+      if (pos === "center") {
+        angle = startAngle_bar2 + arc2Degrees / 2;
+      } else if (pos === "end") {
+        angle = startAngle_bar2 + arc2Degrees;
+      }
+    } else if (forBar === "bar3") {
+      r = pr3;
+      if (pos === "end") {
+        angle = startAngle_bar3 + arc3Degrees;
+      }
+    }
+    const { x, y } = getPointOnCircle(centerx, centery, r, angle);
+    gsapWithCSS.set(cp, { attr: { cx: x, cy: y } });
+  });
+}
+function getPointOnCircle(cx, cy, r, angleDeg) {
+  const angleRad = angleDeg * Math.PI / 180;
+  return {
+    x: cx + r * Math.cos(angleRad),
+    y: cy + r * Math.sin(angleRad)
+  };
+}
 document.querySelectorAll(".mobile-slider").forEach((sliderContainer, index) => {
   console.log(`[Slider ${index}] Начинаем инициализацию`);
   const swiperEl = sliderContainer.querySelector(
@@ -12873,5 +13011,30 @@ document.addEventListener("DOMContentLoaded", () => {
   new Tabs();
   new CasesSlider();
   new QuestionToggler();
+  const dotButton = document.getElementById("hero__dot");
+  const readMore = document.getElementById("hero__read-more");
+  let isOpen = true;
+  if (dotButton && readMore) {
+    dotButton.addEventListener("click", () => {
+      if (isOpen) {
+        gsapWithCSS.to(readMore, {
+          duration: 0.6,
+          x: "100%",
+          opacity: 1,
+          zIndex: 1,
+          ease: "power2.out"
+        });
+      } else {
+        gsapWithCSS.to(readMore, {
+          duration: 0.7,
+          x: "0%",
+          opacity: 0,
+          zIndex: -1,
+          ease: "power2.out"
+        });
+      }
+      isOpen = !isOpen;
+    });
+  }
 });
-//# sourceMappingURL=index-CI_BCPpX.js.map
+//# sourceMappingURL=index-Du45BEnn.js.map
