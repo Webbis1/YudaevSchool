@@ -2103,6 +2103,17 @@ table {
   border-radius: 64px;
   box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.0784313725);
   cursor: pointer;
+  transition: all 0.3s linear;
+}
+.hero__dots.active {
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.08), inset 0 -3px 15px 0 rgba(255, 255, 255, 0.3), inset 0 3px 15px 0 rgba(255, 255, 255, 0.3), inset 2px 0 15px 0 rgba(255, 255, 255, 0.5), inset -2px 0 15px 0 rgba(255, 255, 255, 0.5);
+  background: #cfff32;
+}
+@media (hover: hover) and (pointer: fine) {
+  .hero__dots:hover {
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.08), inset 0 -3px 15px 0 rgba(255, 255, 255, 0.3), inset 0 3px 15px 0 rgba(255, 255, 255, 0.3), inset 2px 0 15px 0 rgba(255, 255, 255, 0.5), inset -2px 0 15px 0 rgba(255, 255, 255, 0.5);
+    background: #cfff32;
+  }
 }
 .hero__fence {
   height: 100%;
@@ -2264,7 +2275,7 @@ table {
   width: 100%;
   opacity: 0;
   z-index: -1;
-  background-color: #EFEFEF;
+  background-color: #efefef;
   box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.0784313725);
   font-size: 15px;
   line-height: 135%;
@@ -2524,6 +2535,7 @@ table {
   width: 100%;
   background-color: rgba(255, 255, 255, 0.4);
   position: relative;
+  z-index: 100;
   box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.0784313725);
   align-items: center;
   padding: 7px;

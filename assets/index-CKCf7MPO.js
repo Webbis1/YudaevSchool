@@ -12351,6 +12351,7 @@ const initCircleModule = () => {
     0.1
   );
 };
+const blurBackground = document.getElementById("background-blur");
 const initBurgerMenu = () => {
   const burgerPc = document.querySelector("#burger-pc");
   const burgerIconPc = burgerPc?.querySelector(".burger");
@@ -12369,7 +12370,6 @@ const initBurgerMenu = () => {
   const hamburgerInput = document.querySelector(
     '.hamburger input[type="checkbox"]'
   );
-  const blurBackground = document.getElementById("background-blur");
   const animateCourses = () => {
     if (!coursesBlock) return;
     if (isCoursesVisible) {
@@ -13024,6 +13024,7 @@ document.addEventListener("DOMContentLoaded", () => {
           zIndex: 1,
           ease: "power2.out"
         });
+        dotButton?.classList.add("active");
       } else {
         gsapWithCSS.to(readMore, {
           duration: 0.7,
@@ -13032,9 +13033,10 @@ document.addEventListener("DOMContentLoaded", () => {
           zIndex: -1,
           ease: "power2.out"
         });
+        dotButton?.classList.remove("active");
       }
       isOpen = !isOpen;
     });
   }
 });
-//# sourceMappingURL=index-Du45BEnn.js.map
+//# sourceMappingURL=index-CKCf7MPO.js.map
