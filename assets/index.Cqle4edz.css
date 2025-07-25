@@ -5890,6 +5890,14 @@ circle {
   padding: 5px;
 }
 
+@keyframes rockUpDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
 #wordstat {
   background-color: #FAFAFA;
   border-radius: clamp(30px, 30px + (60 - 30) * (100dvw - 375px) / (1440 - 375), 60px);
@@ -6040,35 +6048,35 @@ circle {
 }
 #wordstat .div-floater:nth-child(1 of #wordstat .div-floater) {
   left: 21.5%;
-  top: 13.5%;
+  top: 13%;
 }
 #wordstat .div-floater:nth-child(2 of #wordstat .div-floater) {
   left: 40.6%;
-  top: 7.1%;
+  top: 6.6%;
 }
 #wordstat .div-floater:nth-child(3 of #wordstat .div-floater) {
   left: 59.2%;
-  top: 7.1%;
+  top: 6.6%;
 }
 #wordstat .div-floater:nth-child(4 of #wordstat .div-floater) {
   left: 78.5%;
-  top: 13.6%;
+  top: 13.1%;
 }
 #wordstat .div-floater:nth-child(5 of #wordstat .div-floater) {
   left: 9%;
-  top: 41.7%;
+  top: 41.2%;
 }
 #wordstat .div-floater:nth-child(6 of #wordstat .div-floater) {
   left: 36.4%;
-  top: 33.9%;
+  top: 33.4%;
 }
 #wordstat .div-floater:nth-child(7 of #wordstat .div-floater) {
   left: 64%;
-  top: 33.9%;
+  top: 33.4%;
 }
 #wordstat .div-floater:nth-child(8 of #wordstat .div-floater) {
   left: 91%;
-  top: 41.7%;
+  top: 41.2%;
 }
 #wordstat .div-floater-inner {
   backdrop-filter: blur(15px);
@@ -6101,8 +6109,36 @@ circle {
   font-size: 30px;
   margin-block-end: 10px;
 }
+#wordstat .p-floater-title,
+#wordstat .div-floater-inner {
+  animation: rockUpDown 2s ease-in-out infinite;
+}
+#wordstat .div-floater:nth-child(1 of #wordstat .div-floater) .p-floater-title, #wordstat .div-floater:nth-child(1 of #wordstat .div-floater) .div-floater-inner {
+  animation-delay: 0.25s;
+}
+#wordstat .div-floater:nth-child(2 of #wordstat .div-floater) .p-floater-title, #wordstat .div-floater:nth-child(2 of #wordstat .div-floater) .div-floater-inner {
+  animation-delay: 0.5s;
+}
+#wordstat .div-floater:nth-child(3 of #wordstat .div-floater) .p-floater-title, #wordstat .div-floater:nth-child(3 of #wordstat .div-floater) .div-floater-inner {
+  animation-delay: 0.75s;
+}
+#wordstat .div-floater:nth-child(4 of #wordstat .div-floater) .p-floater-title, #wordstat .div-floater:nth-child(4 of #wordstat .div-floater) .div-floater-inner {
+  animation-delay: 1s;
+}
+#wordstat .div-floater:nth-child(5 of #wordstat .div-floater) .p-floater-title, #wordstat .div-floater:nth-child(5 of #wordstat .div-floater) .div-floater-inner {
+  animation-delay: 1.25s;
+}
+#wordstat .div-floater:nth-child(6 of #wordstat .div-floater) .p-floater-title, #wordstat .div-floater:nth-child(6 of #wordstat .div-floater) .div-floater-inner {
+  animation-delay: 1.5s;
+}
+#wordstat .div-floater:nth-child(7 of #wordstat .div-floater) .p-floater-title, #wordstat .div-floater:nth-child(7 of #wordstat .div-floater) .div-floater-inner {
+  animation-delay: 1.75s;
+}
+#wordstat .div-floater:nth-child(8 of #wordstat .div-floater) .p-floater-title, #wordstat .div-floater:nth-child(8 of #wordstat .div-floater) .div-floater-inner {
+  animation-delay: 2s;
+}
 #wordstat .div-progress {
-  --progress: 0.2;
+  --progress: 0.1;
   align-items: center;
   display: flex;
   gap: 4px;
@@ -6111,7 +6147,8 @@ circle {
   border-radius: 5px;
   box-shadow: 0px 8px 25px color-mix(in srgb, black 20%, transparent);
   height: 26px;
-  transition: 0.3s;
+  transition-delay: 1s;
+  transition: 2s;
 }
 #wordstat .div-progress div:nth-child(1) {
   background: linear-gradient(90deg, white, #CFFF32);
