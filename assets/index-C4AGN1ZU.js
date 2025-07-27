@@ -13038,6 +13038,62 @@ document.addEventListener("DOMContentLoaded", () => {
       isOpen = !isOpen;
     });
   }
+  let isOpen3 = false;
+  const button3 = document.getElementById(
+    "basic-courses__card-read-more"
+  );
+  const courseList = document.getElementById(
+    "course-list"
+  );
+  if (!button3) {
+    console.warn("Кнопка #basic-courses__card-read-more не найдена в DOM");
+    return;
+  }
+  if (!courseList) {
+    console.warn("Элемент #course-list не найден в DOM");
+    return;
+  }
+  console.log("✅ Элементы найдены, вешаем обработчик");
+  button3.addEventListener("touchstart", handleToggle, { passive: true });
+  button3.addEventListener("click", handleToggle);
+  function handleToggle(e) {
+    e.preventDefault();
+    console.log("Сработал клик или тач!");
+  }
+  button3.addEventListener("click", (e) => {
+    console.log("Клик сработал! Текущее состояние: isOpen3 =", isOpen3);
+    e.stopPropagation();
+    if (isOpen3) {
+      gsapWithCSS.to(courseList, {
+        duration: 0.6,
+        x: "100%",
+        // уезжает вправо
+        opacity: 0,
+        ease: "power2.out",
+        onComplete: () => {
+          courseList.style.pointerEvents = "none";
+        }
+      });
+    } else {
+      courseList.style.pointerEvents = "auto";
+      gsapWithCSS.fromTo(
+        courseList,
+        {
+          x: "100%",
+          // начинается справа (за пределами)
+          opacity: 0
+        },
+        {
+          x: 0,
+          // приезжает в исходную позицию
+          opacity: 1,
+          duration: 0.7,
+          ease: "power2.out"
+        }
+      );
+    }
+    isOpen3 = !isOpen3;
+  });
 });
 const disableScroll = () => {
   document.body.style.overflow = "hidden";
@@ -13046,7 +13102,9 @@ const enableScroll = () => {
   document.body.style.overflow = "";
 };
 const popup = document.getElementById("popup");
-const openButton = document.getElementById("special-offer__spa");
+const openButton = document.getElementById(
+  "special-offer__spa"
+);
 if (!popup || !openButton) {
   console.warn("Popup или кнопка не найдены");
 }
@@ -13060,4 +13118,4 @@ popup?.addEventListener("click", (e) => {
     enableScroll();
   }
 });
-//# sourceMappingURL=index-CM-E_JSo.js.map
+//# sourceMappingURL=index-C4AGN1ZU.js.map
