@@ -3197,6 +3197,9 @@ table {
   gap: 230px;
   will-change: transform;
 }
+.from-scratch-to-pro__card-section {
+  justify-content: center;
+}
 
 .circle-section {
   position: relative;
@@ -3349,6 +3352,76 @@ circle {
 .second-section-slide__grid img:nth-child(4) {
   grid-row: 3;
   grid-column: 4;
+}
+
+.popup {
+  position: fixed;
+  inset: 0;
+  padding-top: 50px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(30px);
+  background-color: rgba(255, 255, 255, 0.27);
+}
+.popup .questions-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.popup .questions-block__title {
+  position: absolute;
+  top: 0;
+  transform: translateY(-50%);
+}
+.popup .questions-block__subtitle {
+  margin-bottom: 190px;
+}
+
+.special-offer {
+  position: relative;
+  padding: 0;
+  background: linear-gradient(0deg, #f1f1f1, #f1f1f1), linear-gradient(0deg, rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.03));
+  width: 460px;
+  backdrop-filter: blur(60px);
+  box-shadow: 0 6px 35px 0 rgba(0, 0, 0, 0.05);
+  padding: 2px;
+  overflow: hidden;
+}
+.special-offer.gradient-border::before {
+  padding: 2px;
+}
+.special-offer .circle-icon {
+  background-color: #cfff32;
+}
+.special-offer__card-name {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+.special-offer__spa {
+  z-index: 2;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+.special-offer__spa .side-media {
+  backdrop-filter: blur(5px);
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.15);
+}
+.special-offer__text {
+  padding: 20px;
+}
+.special-offer__image {
+  width: 100%;
+  background-color: transparent;
+  z-index: 1;
+}
+.special-offer__image img {
+  width: 100%;
+  object-fit: contain;
+  object-position: bottom;
 }
 
 .basic-courses {

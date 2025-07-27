@@ -13039,4 +13039,25 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
-//# sourceMappingURL=index-CAY3Sh_L.js.map
+const disableScroll = () => {
+  document.body.style.overflow = "hidden";
+};
+const enableScroll = () => {
+  document.body.style.overflow = "";
+};
+const popup = document.getElementById("popup");
+const openButton = document.getElementById("special-offer__spa");
+if (!popup || !openButton) {
+  console.warn("Popup или кнопка не найдены");
+}
+openButton?.addEventListener("click", () => {
+  popup.style.display = "flex";
+  disableScroll();
+});
+popup?.addEventListener("click", (e) => {
+  if (e.target === popup) {
+    popup.style.display = "none";
+    enableScroll();
+  }
+});
+//# sourceMappingURL=index-CM-E_JSo.js.map
